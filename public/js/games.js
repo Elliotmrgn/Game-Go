@@ -1,5 +1,5 @@
 
-function gameSearch() {
+const gameSearch = () => {
     const searchQuery = $('#searchBar').val();
 
     const queryUrl = `https://api.rawg.io/api/games/${searchQuery}`;
