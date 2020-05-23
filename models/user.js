@@ -31,10 +31,14 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
-  User.associate = (models) => {
-    User.hasOne(models.Settings, {
+  User.associate = async (models) => {
+    await User.hasOne(models.Settings, {
+      onDelete: "cascade",
+    });
+    await User.associate(models.PlatformPreferences, {
       onDelete: "cascade",
     });
   };
+
   return User;
 };
