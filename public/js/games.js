@@ -1,6 +1,6 @@
 
 const gameSearch = () => {
-    const searchQuery = $('#searchBar').val();
+    const searchQuery = "doom-eternal";
 
     const queryUrl = `https://api.rawg.io/api/games/${searchQuery}`;
 
@@ -14,8 +14,10 @@ const gameSearch = () => {
     })
 };
 
+gameSearch();
 
-$('#searchGames').on('click', (event) => {
+
+/* $('#searchGames').on('click', (event) => {
     event.preventDefault();
     gameSearch();
-});
+}); */
