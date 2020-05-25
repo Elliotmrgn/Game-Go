@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+const axios = require("axios");
 
 module.exports = (app) => {
   // Using the passport.authenticate middleware with our local strategy.
@@ -49,5 +50,14 @@ module.exports = (app) => {
         id: req.user.id,
       });
     }
+  });
+
+  //Call for getting a random game based on game id
+
+  app.get("/api/games/:gameId", async (req, res) => {
+    const gameId = req.params.gameId;
+    const queryUrl = `https://api.rawg.io/api/games/${gameId}`;
+    const axiosCall = await axios.get(queryUrl);
+    console.log("axiosCall", axiosCall);
   });
 };
