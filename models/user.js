@@ -31,11 +31,8 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
-  User.associate = async (models) => {
-    await User.hasOne(models.Settings, {
-      onDelete: "cascade",
-    });
-    await User.associate(models.PlatformPreferences, {
+  User.associate = (models) => {
+    User.hasMany(models.Game, {
       onDelete: "cascade",
     });
   };

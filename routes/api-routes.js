@@ -1,7 +1,6 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-const axios = require("axios");
 
 module.exports = (app) => {
   // Using the passport.authenticate middleware with our local strategy.
@@ -52,12 +51,42 @@ module.exports = (app) => {
     }
   });
 
-  //Call for getting a random game based on game id
+  //Saving game to database
+  app.post("/api/saveGame", async (req, res) => {
+    const { name, id, UserId } = req.params;
+    try {
+      const addGame = await db.Game.create({
+        name: name,
+        gameId: id,
+        UserId,
+      });
+      res.json(addGame);
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
 
-  app.get("/api/games/:gameId", async (req, res) => {
-    const gameId = req.params.gameId;
-    const queryUrl = `https://api.rawg.io/api/games/${gameId}`;
-    const axiosCall = await axios.get(queryUrl);
-    console.log("axiosCall", axiosCall);
+  //Getting saved games
+  app.get("/api/games", async (req, res) => {
+    try {
+      const allGames = await db.Game.findAll({});
+      res.json(allGames);
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
+
+  //Getting saved game from the id
+  app.get("/api/games", async (req, res) => {
+    try {
+      const singleGame = await db.Game.findOne({
+        where: {
+          id: req.params.id,
+        },
+      });
+      res.json(singleGame);
+    } catch (err) {
+      console.log("err", err);
+    }
   });
 };
