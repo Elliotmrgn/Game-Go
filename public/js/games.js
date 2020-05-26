@@ -3,8 +3,14 @@ let multiPlayer = 0;
 let controllerSupport = 0;
 let greatSoundtrack = 0;
 let coOp = 0;
+let firstPerson = 0;
+let pVe = 0;
+let pVp = 0;
+let newTags = 0;
+let allTags = [];
 
-let allTags = "";
+
+//---------------------------RANDOM GAME SEARCH---------------------------//
 
 
 let platformId = $('#platformDrop').val();
@@ -128,38 +134,68 @@ switch (genreId) {
 };
 
 
-if ($('#singlePlayer').attr('checked')) {
-    singlePlayer = 31;
-    allTags += `${singlePlayer}`;
-};
+// if ($('#singlePlayer').attr('checked')) {
+//     singlePlayer = 31;
+//     allTags.push(singlePlayer);
+// };
 
-if ($('#multiPlayer').attr('checked')) {
-    multiPlayer = 7;
-    allTags += `${multiPlayer}`;
-};
+// if ($('#multiPlayer').attr('checked')) {
+//     multiPlayer = 7;
+//     allTags.push(multiPlayer);  
+// };
 
-if ($('#contollerSupport').attr('checked')) {
-    controllerSupport = 40836;
-    allTags += `${controllerSupport}`;
-};
+// if ($('#contollerSupport').attr('checked')) {
+//     controllerSupport = 40836;
+//     allTags.push(controllerSupport);    
+// };
 
-if ($('#greatSoundtrack').attr('checked')) {
-    greatSoundtrack = 42;
-    allTags += `${greatSoundtrack}`;
-};
+// if ($('#greatSoundtrack').attr('checked')) {
+//     greatSoundtrack = 42;
+//     allTags.push(greatSoundtrack);
+// };
 
-if ($('#coOp').attr('checked')) {
-    coOp = 18;
-    allTags += `${coOp}`
-};
+// if ($('#coOp').attr('checked')) {
+//     coOp = 18;
+//     allTags.push(coOp);
+// };
+
+// if ($('#firstPerson').attr('checked')) {
+//     firstPerson = 8;
+//     allTags.push(firstPerson);
+// };
+
+// if ($('#PvE').attr('checked')) {
+//     pVe = 171;
+//     allTags.push(pVe);
+// };
+
+// if ($('#PvP').attr('checked')) {
+//     pVp = 157;
+//     allTags.push(pVp);
+// };
+
+singlePlayer = 31;
+allTags.push(singlePlayer);
+
+multiPlayer = 7;
+allTags.push(multiPlayer);
+
+controllerSupport = 40836;
+allTags.push(controllerSupport);
+
+coOp = 18;
+allTags.push(coOp);
 
 
+newTags = allTags.toString();
+
+console.log('newTags:', newTags);
 
 
 const gameSearch = () => {
-    const searchQuery = `platforms=187&genres=4`;
+    const searchQuery = `platforms=187&genres=4&tags=${newTags}`;
 
-    const searchQuery = `platforms=${platformId}&genres=${genreId}`;
+    // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
     const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
 
@@ -170,13 +206,37 @@ const gameSearch = () => {
 
     .then(response => {
         console.log(response);
+
+        // Getting random number to select random game
+        const randNumber = Math.floor(Math.random() * 10);
+        console.log('number:', randNumber);
+
+        const randGame = response.results[randNumber];
+        console.log('randGame:', randGame);
+
     })
 };
 
+//Temporary call to start the function for API testing purposes
 gameSearch();
 
-
+//Kick off the search with the front end submit button
 /* $('#searchGames').on('click', (event) => {
     event.preventDefault();
     gameSearch();
 }); */
+
+// Getting random number to select random game
+const number = Math.floor(Math.random() * 10);
+console.log('number:', number);
+
+
+
+
+
+
+
+
+//---------------------------PREVIOUS LIKED GAME SEARCH---------------------------//
+
+//need to get ID of game that was liked from the database
