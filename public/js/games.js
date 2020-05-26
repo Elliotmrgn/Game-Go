@@ -1,3 +1,5 @@
+// import { response } from "express";
+
 let singlePlayer = 0;
 let multiPlayer = 0;
 let controllerSupport = 0;
@@ -7,6 +9,7 @@ let firstPerson = 0;
 let pVe = 0;
 let pVp = 0;
 let newTags = 0;
+let randGameID = 0;
 let allTags = [];
 
 
@@ -133,7 +136,7 @@ switch (genreId) {
         break;
 };
 
-
+//THESE ARE THE ACTUAL TAG CALLS TO BE USED WITH FRONT END
 // if ($('#singlePlayer').attr('checked')) {
 //     singlePlayer = 31;
 //     allTags.push(singlePlayer);
@@ -174,6 +177,7 @@ switch (genreId) {
 //     allTags.push(pVp);
 // };
 
+//EXAMPLE TAGS USED FOR TESTING WITHOUT FRONT END
 singlePlayer = 31;
 allTags.push(singlePlayer);
 
@@ -207,13 +211,31 @@ const gameSearch = () => {
     .then(response => {
         console.log(response);
 
-        // Getting random number to select random game
+        // Getting random number to select random game (maybe increase list size in first api call and then change '10')
         const randNumber = Math.floor(Math.random() * 10);
         console.log('number:', randNumber);
 
         const randGame = response.results[randNumber];
         console.log('randGame:', randGame);
 
+        let randGameID = randGame.id;
+        console.log('randGameID:', randGameID);
+        
+        //need to async await ajax call so that this can be its on function outside of the .then and just called here.
+        
+        //function getGameDetials() {
+
+            const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
+    
+            $.ajax({
+                url: queryUrl2,
+                type: "GET"
+            })
+    
+            .then(response => {
+                console.log('GAME DETAILS!!!', response);
+            })
+        // }
     })
 };
 
@@ -226,9 +248,7 @@ gameSearch();
     gameSearch();
 }); */
 
-// Getting random number to select random game
-const number = Math.floor(Math.random() * 10);
-console.log('number:', number);
+
 
 
 
@@ -240,3 +260,19 @@ console.log('number:', number);
 //---------------------------PREVIOUS LIKED GAME SEARCH---------------------------//
 
 //need to get ID of game that was liked from the database
+
+function getSavedGameDetails() {
+    
+    let savedGameID = "Replace with method to get ID from DB";
+
+    const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
+    
+            $.ajax({
+                url: queryUrl,
+                type: "GET"
+            })
+    
+            .then(response => {
+                console.log('SAVED GAME DETAILS!!!', response);
+            })
+}
