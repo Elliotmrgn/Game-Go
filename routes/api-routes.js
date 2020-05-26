@@ -76,12 +76,12 @@ module.exports = (app) => {
     }
   });
 
-  //Getting saved game from the id
-  app.get("/api/games/:id", async (req, res) => {
+  //Getting saved game from the userid
+  app.get("/api/games/:UserId", async (req, res) => {
     try {
-      const singleGame = await db.Game.findOne({
+      const singleGame = await db.Game.findAll({
         where: {
-          id: req.params.id,
+          UserId: req.params.UserId,
         },
       });
       res.json(singleGame);
