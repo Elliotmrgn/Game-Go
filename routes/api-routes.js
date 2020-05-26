@@ -56,7 +56,7 @@ module.exports = (app) => {
     const { name, id, UserId } = req.params;
     try {
       const addGame = await db.Game.create({
-        name: name,
+        name,
         gameId: id,
         UserId,
       });
@@ -77,7 +77,7 @@ module.exports = (app) => {
   });
 
   //Getting saved game from the id
-  app.get("/api/games", async (req, res) => {
+  app.get("/api/games/:id", async (req, res) => {
     try {
       const singleGame = await db.Game.findOne({
         where: {
