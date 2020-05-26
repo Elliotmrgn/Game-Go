@@ -1,28 +1,28 @@
 module.exports = (sequelize, DataTypes) => {
   const GenrePreferences = sequelize.define("GenrePreferences", {
     single_player: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
     multiplayer: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
     full_contoller_support: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
     great_soundtrack: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
     coop: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
     first_person: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
     pve: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
     pvp: {
-      type: DataTypes.BOOLEEN,
+      type: DataTypes.BOOLEAN,
     },
   });
   GenrePreferences.associate = (models) => {

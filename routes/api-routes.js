@@ -89,4 +89,47 @@ module.exports = (app) => {
       console.log("err", err);
     }
   });
+
+  //Finding game genre preferences to database for specific user
+  app.get("/api/genres/:UserId", async (req, res) => {
+    try {
+      const userGenres = await db.GenrePreferences.findAll({
+        where: {
+          UserId: req.params.UserId,
+        },
+      });
+      res.json(userGenres);
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
+
+  //Adding user genre preferences for user
+  app.post("/api/genres/", async (req, res) => {
+    try {
+      const {
+        single_player,
+        multiplayer,
+        full_controller_support,
+        coop,
+        first_person,
+        pve,
+        pvp,
+        UserId,
+      } = req.params;
+      const userGenres = await db.GenrePreferences.create({
+        single_player,
+        multiplayer,
+        full_controller_support,
+        coop,
+        first_person,
+        pve,
+        pvp,
+        UserId,
+      });
+      res.json(userGenres);
+    } catch (err) {
+      console.log(err);
+    }
+  });
 };
