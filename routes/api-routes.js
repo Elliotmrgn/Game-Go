@@ -90,22 +90,22 @@ module.exports = (app) => {
     }
   });
 
-  //Finding game genre preferences to database for specific user
-  app.get("/api/genres/:UserId", async (req, res) => {
+  //Finding game tag preferences for specific user
+  app.get("/api/tags/:UserId", async (req, res) => {
     try {
-      const userGenres = await db.GenrePreferences.findAll({
+      const userTags = await db.TagPreferences.findAll({
         where: {
           UserId: req.params.UserId,
         },
       });
-      res.json(userGenres);
+      res.json(userTags);
     } catch (err) {
       console.log("err", err);
     }
   });
 
-  //Adding user genre preferences for user
-  app.post("/api/genres/", async (req, res) => {
+  //Adding user tag preferences for user
+  app.post("/api/tags/", async (req, res) => {
     try {
       const {
         single_player,
@@ -117,7 +117,7 @@ module.exports = (app) => {
         pvp,
         UserId,
       } = req.params;
-      const userGenres = await db.GenrePreferences.create({
+      const userTags = await db.TagPreferences.create({
         single_player,
         multiplayer,
         full_controller_support,
@@ -127,7 +127,7 @@ module.exports = (app) => {
         pvp,
         UserId,
       });
-      res.json(userGenres);
+      res.json(userTags);
     } catch (err) {
       console.log(err);
     }

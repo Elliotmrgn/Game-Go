@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const GenrePreferences = sequelize.define("GenrePreferences", {
+  const TagPreferences = sequelize.define("TagPreferences", {
     single_player: {
       type: DataTypes.BOOLEAN,
     },
@@ -25,12 +25,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
     },
   });
-  GenrePreferences.associate = (models) => {
-    GenrePreferences.belongsTo(models.User, {
+  TagPreferences.associate = (models) => {
+    TagPreferences.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
       },
     });
   };
-  return GenrePreferences;
+  return TagPreferences;
 };
