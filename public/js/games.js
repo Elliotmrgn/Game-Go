@@ -1,5 +1,3 @@
-
-
 let singlePlayer = 0;
 let multiPlayer = 0;
 let controllerSupport = 0;
@@ -13,11 +11,9 @@ let randNumber = Math.floor(Math.random() * 10);
 let randGameID = 0;
 let allTags = [];
 
-
 //---------------------------RANDOM GAME SEARCH---------------------------//
 
-
-let platformId = $('#platformDrop').val();
+let platformId = $("#platformDrop").val();
 
 switch (platformId) {
   case "PC":
@@ -52,78 +48,78 @@ switch (platformId) {
     platformId = 16;
     break;
 
-    case "SNES":
-        platformId = 79;
-        break;
-};
+  case "SNES":
+    platformId = 79;
+    break;
+}
 
-let genreId = $('#genreDrop').val();
+let genreId = $("#genreDrop").val();
 
 switch (genreId) {
-    case "Action":
-        genreId = 4;
-        break;
+  case "Action":
+    genreId = 4;
+    break;
 
-    case "Indie":
-        genreId = 51;
-        break;
+  case "Indie":
+    genreId = 51;
+    break;
 
-    case "Adventure":
-        genreId = 3;
-        break;
+  case "Adventure":
+    genreId = 3;
+    break;
 
-    case "RPG":
-        genreId = 5;
-        break;
+  case "RPG":
+    genreId = 5;
+    break;
 
-    case "Strategy":
-        genreId = 10;
-        break;
+  case "Strategy":
+    genreId = 10;
+    break;
 
-    case "Shooter":
-        genreId = 2;
-        break;
+  case "Shooter":
+    genreId = 2;
+    break;
 
-    case "Casual":
-        genreId = 40;
-        break;
+  case "Casual":
+    genreId = 40;
+    break;
 
-    case "Simulation":
-        genreId = 14;
-        break;
+  case "Simulation":
+    genreId = 14;
+    break;
 
-    case "Puzzle":
-        genreId = 2;
-        break;
+  case "Puzzle":
+    genreId = 2;
+    break;
 
-    case "Arcade":
-        genreId = 11;
-        break;
+  case "Arcade":
+    genreId = 11;
+    break;
 
-    case "Racing":
-        genreId = 1;
-        break;
+  case "Racing":
+    genreId = 1;
+    break;
 
-    case "Sports":
-        genreId = 15;
-        break;
+  case "Sports":
+    genreId = 15;
+    break;
 
-    case "Massively Multiplayer":
-        genreId = 259;
-        break;
+  case "Massively Multiplayer":
+    genreId = 259;
+    break;
 
-    case "Fighting":
-        genreId = 6;
-        break;
+  case "Fighting":
+    genreId = 6;
+    break;
 
-    case "Board":
-        genreId = 28;
-        break;
+  case "Board":
+    genreId = 28;
+    break;
 
-    case "Card":
-        genreId = 17;
-        break;
-};
+  case "Card":
+    genreId = 17;
+    break;
+}
 
 //THESE ARE THE ACTUAL TAG CALLS TO BE USED WITH FRONT END
 // if ($('#singlePlayer').attr('checked')) {
@@ -133,12 +129,12 @@ switch (genreId) {
 
 // if ($('#multiPlayer').attr('checked')) {
 //     multiPlayer = 7;
-//     allTags.push(multiPlayer);  
+//     allTags.push(multiPlayer);
 // };
 
 // if ($('#contollerSupport').attr('checked')) {
 //     controllerSupport = 40836;
-//     allTags.push(controllerSupport);    
+//     allTags.push(controllerSupport);
 // };
 
 // if ($('#greatSoundtrack').attr('checked')) {
@@ -179,45 +175,42 @@ allTags.push(controllerSupport);
 coOp = 18;
 allTags.push(coOp);
 
-
 newTags = allTags.toString();
 
-console.log('newTags:', newTags);
-
-
+console.log("newTags:", newTags);
 
 async function gameSearch() {
-    const searchQuery = `platforms=187&genres=4&tags=${newTags}`;
+  const searchQuery = `platforms=187&genres=4&tags=${newTags}`;
 
-    // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
+  // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
-    const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
+  const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
 
-    const result = await $.ajax({
-        url: queryUrl,
-        type: "GET"
-    })
+  const result = await $.ajax({
+    url: queryUrl,
+    type: "GET",
+  });
 
-    console.log('THIS IS THE FIRST RESPONSE', result);
+  console.log("THIS IS THE FIRST RESPONSE", result);
 
-    // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
+  // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
 
-    console.log('random number: ', randNumber);
-    const randGame = result.results[randNumber];
-    console.log('randGame:', randGame);
+  console.log("random number: ", randNumber);
+  const randGame = result.results[randNumber];
+  console.log("randGame:", randGame);
 
-    let randGameID = randGame.id;
-    console.log('randGameID:', randGameID);
+  let randGameID = randGame.id;
+  console.log("randGameID:", randGameID);
 
-    const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
+  const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
 
-    const result2 = await $.ajax({
-        url: queryUrl2,
-        type: "GET"
-    })
+  const result2 = await $.ajax({
+    url: queryUrl2,
+    type: "GET",
+  });
 
-    console.log('GAME DETAILS RESPONSE: ', result2);
-};
+  console.log("GAME DETAILS RESPONSE: ", result2);
+}
 
 //Temporary call to start the function for API testing purposes
 gameSearch();
@@ -228,23 +221,20 @@ gameSearch();
     gameSearch();
 }); */
 
-
 //---------------------------PREVIOUS LIKED GAME SEARCH---------------------------//
 
 //need to get ID of game that was liked from the database
 
 function getSavedGameDetails() {
-    
-    let savedGameID = "Replace with method to get ID from DB";
+  let savedGameID = "Replace with method to get ID from DB";
 
-    const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
-    
-            $.ajax({
-                url: queryUrl,
-                type: "GET"
-            })
-    
-            .then(response => {
-                console.log('SAVED GAME DETAILS!!!', response);
-            })
-};
+  const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
+
+  $.ajax({
+    url: queryUrl,
+    type: "GET",
+  })
+  .then((response) => {
+    console.log("SAVED GAME DETAILS!!!", response);
+  });
+}

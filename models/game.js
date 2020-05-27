@@ -4,6 +4,24 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    slug: {
+      type: DataTypes.STRING,
+    },
+    description: {
+      type: DataTypes.TEXT,
+    },
+    metacritic: {
+      type: DataTypes.INT,
+    },
+    released: {
+      type: DataTypes.STRING,
+    },
+    background_image: {
+      type: DataTypes.TEXT,
+    },
+    website: {
+      type: DataTypes.STRING,
+    },
     gameId: {
       type: DataTypes.BIGINT,
       allowNull: false,
