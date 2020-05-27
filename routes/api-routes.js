@@ -53,11 +53,27 @@ module.exports = (app) => {
 
   //Saving game to database
   app.post("/api/saveGame", async (req, res) => {
-    const { name, id, UserId } = req.params;
+    const {
+      name,
+      id,
+      UserId,
+      slug,
+      description,
+      metacritic,
+      released,
+      background_image,
+      website,
+    } = req.params;
     try {
       const addGame = await db.Game.create({
         name,
         gameId: id,
+        slug,
+        description,
+        metacritic,
+        released,
+        background_image,
+        website,
         UserId,
       });
       res.json(addGame);
