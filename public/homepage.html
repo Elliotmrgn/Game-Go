@@ -2,24 +2,27 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link href="stylesheets/style.css" rel="stylesheet">
+    <title>Passport Authentication</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css" />
 </head>
 
 <body>
-    <!-- NAVBAR -->
+    <!--THIS IS THE NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-    <a class="navbar-brand" href="homepage.html"><img src="gamego!.png" alt="logo" width="100" height="20"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <a class="navbar-brand" href="homepage.html"><img src="gamego!.png" alt="logo" width="100" height="20"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="homepage.html">HOME</a>
+                    <a class="nav-link" href="homepage.html">HOME <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="bookmarks.html">BOOKMARKS</a>
@@ -30,13 +33,149 @@
             </ul>
         </div>
     </nav>
-   <div>
-       
-   </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Instructions -->
+    <div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>PLATFORM</h1>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="platform" id="xbox" value="xbox">
+                    <label class="form-check-label" for="inlineRadio1">XBOX</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="platform" id="ps4" value="ps4">
+                    <label class="form-check-label" for="inlineRadio1">PS4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="platform" id="pc" value="pc">
+                    <label class="form-check-label" for="inlineRadio1">PC</label>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class=col-6>
+                <h1>GENRE</h1>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="action" value="action">
+                    <label class="form-check-label" for="action">ACTION</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="indie" value="indie">
+                    <label class="form-check-label" for="indie">INDIE</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="adventure"
+                        value="adventure">
+                    <label class="form-check-label" for="adventure">ADVENTURE</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="rpg" value="rpg">
+                    <label class="form-check-label" for="rpg">RPG</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="strategy"
+                        value="strategy">
+                    <label class="form-check-label" for="strategy">STRATEGY</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="shooter" value="shooter">
+                    <label class="form-check-label" for="shooter">SHOOTER</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="casual" value="casual">
+                    <label class="form-check-label" for="casual">CASUAL</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="simulation"
+                        value="simulation">
+                    <label class="form-check-label" for="simulation">SIMULATION</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="puzzle" value="puzzle">
+                    <label class="form-check-label" for="puzzle">PUZZLE</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="arcade" value="arcade">
+                    <label class="form-check-label" for="arcade">ARCADE</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="platformer"
+                        value="platformer">
+                    <label class="form-check-label" for="platformer">PLATFORMER</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="racing" value="racing">
+                    <label class="form-check-label" for="racing">RACING</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="genre" id="sports" value="sports">
+                    <label class="form-check-label" for="sports">SPORTS</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <h1>TAGS</h1>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="single-player" value="single-player">
+                    <label class="form-check-label" for="single-player">SINGLE PLAYER</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="multiplayer" value="multiplayer">
+                    <label class="form-check-label" for="multiplayer">MULTIPLAYER</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="controller" value="controller">
+                    <label class="form-check-label" for="controller">FULL CONTROLLER SUPPORT</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="soundtrack" value="soundtrack">
+                    <label class="form-check-label" for="soundtrack">GREAT SOUNDTRACK</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="coop" value="coop">
+                    <label class="form-check-label" for="coop">CO-OP</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="first-person" value="first-person">
+                    <label class="form-check-label" for="first-person">FIRST PERSON</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="pve" value="pve">
+                    <label class="form-check-label" for="pve">PVE</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="pvp" value="pvp">
+                    <label class="form-check-label" for="pvp">PVP</label>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="search">Search</button>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h1>GAME TITLE</h1>
+                    <img src="logo.PNG">
+                    <h3>PLATFORMS</h3>
+                    <h3>DESCRIPTION</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/homepage.js"></script>
 
 </body>
