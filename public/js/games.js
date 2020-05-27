@@ -1,5 +1,3 @@
-
-
 let singlePlayer = 0;
 let multiPlayer = 0;
 let controllerSupport = 0;
@@ -52,77 +50,77 @@ switch (platformId) {
     platformId = 16;
     break;
 
-    case "SNES":
-        platformId = 79;
-        break;
+  case "SNES":
+    platformId = 79;
+    break;
 };
 
 let genreId = $('#genreDrop').val();
 
 switch (genreId) {
-    case "Action":
-        genreId = 4;
-        break;
+  case "action":
+    genreId = 4;
+    break;
 
-    case "Indie":
-        genreId = 51;
-        break;
+  case "indie":
+    genreId = 51;
+    break;
 
-    case "Adventure":
-        genreId = 3;
-        break;
+  case "adventure":
+    genreId = 3;
+    break;
 
-    case "RPG":
-        genreId = 5;
-        break;
+  case "rpg":
+    genreId = 5;
+    break;
 
-    case "Strategy":
-        genreId = 10;
-        break;
+  case "strategy":
+    genreId = 10;
+    break;
 
-    case "Shooter":
-        genreId = 2;
-        break;
+  case "shooter":
+    genreId = 2;
+    break;
 
-    case "Casual":
-        genreId = 40;
-        break;
+  case "casual":
+    genreId = 40;
+    break;
 
-    case "Simulation":
-        genreId = 14;
-        break;
+  case "simulation":
+    genreId = 14;
+    break;
 
-    case "Puzzle":
-        genreId = 2;
-        break;
+  case "puzzle":
+    genreId = 2;
+    break;
 
-    case "Arcade":
-        genreId = 11;
-        break;
+  case "arcade":
+    genreId = 11;
+    break;
 
-    case "Racing":
-        genreId = 1;
-        break;
+  case "racing":
+    genreId = 1;
+    break;
 
-    case "Sports":
-        genreId = 15;
-        break;
+  case "sports":
+    genreId = 15;
+    break;
 
-    case "Massively Multiplayer":
-        genreId = 259;
-        break;
+  case "massively Multiplayer":
+    genreId = 259;
+    break;
 
-    case "Fighting":
-        genreId = 6;
-        break;
+  case "fighting":
+    genreId = 6;
+    break;
 
-    case "Board":
-        genreId = 28;
-        break;
+  case "board":
+      genreId = 28;
+      break;
 
-    case "Card":
-        genreId = 17;
-        break;
+  case "card":
+    genreId = 17;
+    break;
 };
 
 //THESE ARE THE ACTUAL TAG CALLS TO BE USED WITH FRONT END
@@ -239,11 +237,16 @@ async function getSavedGameDetails() {
 
     const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
     
+<<<<<<< Updated upstream
     const response = await $.ajax({
+=======
+    $.ajax({
+>>>>>>> Stashed changes
         url: queryUrl,
         type: "GET"
     })
 
+<<<<<<< Updated upstream
     console.log('SAVED GAME DETAILS!!!', response);
 };
 
@@ -263,4 +266,9 @@ async function getSavedGameDetails() {
     })
 
     console.log('SAVED GAME DETAILS!!!', response);
+=======
+    .then(response => {
+        console.log('SAVED GAME DETAILS!!!', response);
+    })
+>>>>>>> Stashed changes
 };
