@@ -2,7 +2,7 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-module.exports = app => {
+module.exports = (app) => {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -10,22 +10,22 @@ module.exports = app => {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", (req, res)=> {
+  app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
-      .then(()=> {
+      .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -46,8 +46,90 @@ module.exports = app => {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
+    }
+  });
+
+  //Saving game to database
+  app.post("/api/saveGame", async (req, res) => {
+    const { name, id, UserId } = req.params;
+    try {
+      const addGame = await db.Game.create({
+        name,
+        gameId: id,
+        UserId,
+      });
+      res.json(addGame);
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
+
+  //Getting saved games
+  app.get("/api/games", async (req, res) => {
+    try {
+      const allGames = await db.Game.findAll({});
+      res.json(allGames);
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
+
+  //Getting saved game from the userid
+  app.get("/api/games/:UserId", async (req, res) => {
+    try {
+      const singleGame = await db.Game.findAll({
+        where: {
+          UserId: req.params.UserId,
+        },
+      });
+      res.json(singleGame);
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
+
+  //Finding game genre preferences to database for specific user
+  app.get("/api/genres/:UserId", async (req, res) => {
+    try {
+      const userGenres = await db.GenrePreferences.findAll({
+        where: {
+          UserId: req.params.UserId,
+        },
+      });
+      res.json(userGenres);
+    } catch (err) {
+      console.log("err", err);
+    }
+  });
+
+  //Adding user genre preferences for user
+  app.post("/api/genres/", async (req, res) => {
+    try {
+      const {
+        single_player,
+        multiplayer,
+        full_controller_support,
+        coop,
+        first_person,
+        pve,
+        pvp,
+        UserId,
+      } = req.params;
+      const userGenres = await db.GenrePreferences.create({
+        single_player,
+        multiplayer,
+        full_controller_support,
+        coop,
+        first_person,
+        pve,
+        pvp,
+        UserId,
+      });
+      res.json(userGenres);
+    } catch (err) {
+      console.log(err);
     }
   });
 };

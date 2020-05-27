@@ -1,9 +1,21 @@
-module.exports = function(sequelize, DataTypes) {
-    var Game = sequelize.define("Game", {
-      // Giving the Author model a name of type STRING
-      title: DataTypes.STRING
-    });
+module.exports = (sequelize, DataTypes) => {
+  const Game = sequelize.define("Game", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    gameId: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+    },
+  });
 
-    return Game;
+  Game.associate = (models) => {
+    Game.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
   };
-  
+  return Game;
+};
