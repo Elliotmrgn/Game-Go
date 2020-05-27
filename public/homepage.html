@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <title>Passport Authentication</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +9,6 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="stylesheets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css" />
-
 </head>
 
 <body>
@@ -45,15 +43,15 @@
             <div class="col-12">
                 <h1>PLATFORM</h1>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="xbox" value="xbox">
-                    <label class="form-check-label" for="inlineRadio1">XBOX</label>
+                    <input class="form-check-input" type="radio" name="platform" id="xbox-one" value="1">
+                    <label class="form-check-label" for="inlineRadio1">XBOX ONE</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ps4" value="ps4">
+                    <input class="form-check-input" type="radio" name="platform" id="ps4" value="18">
                     <label class="form-check-label" for="inlineRadio1">PS4</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="pc" value="pc">
+                    <input class="form-check-input" type="radio" name="platform" id="pc" value="4">
                     <label class="form-check-label" for="inlineRadio1">PC</label>
                 </div>
             </div>
@@ -63,160 +61,121 @@
             <div class=col-6>
                 <h1>GENRE</h1>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="action" value="action">
+                    <input class="form-check-input" type="radio" name="genre" id="action" value="4">
                     <label class="form-check-label" for="action">ACTION</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="indie" value="indie">
+                    <input class="form-check-input" type="radio" name="genre" id="indie" value="51">
                     <label class="form-check-label" for="indie">INDIE</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="adventure"
+                    <input class="form-check-input" type="radio" name="genre" id="3"
                         value="adventure">
                     <label class="form-check-label" for="adventure">ADVENTURE</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rpg" value="rpg">
+                    <input class="form-check-input" type="radio" name="genre" id="rpg" value="5">
                     <label class="form-check-label" for="rpg">RPG</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="strategy"
+                    <input class="form-check-input" type="radio" name="genre" id="10"
                         value="strategy">
                     <label class="form-check-label" for="strategy">STRATEGY</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="shooter" value="shooter">
+                    <input class="form-check-input" type="radio" name="genre" id="shooter" value="2">
                     <label class="form-check-label" for="shooter">SHOOTER</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="casual" value="casual">
+                    <input class="form-check-input" type="radio" name="genre" id="casual" value="40">
                     <label class="form-check-label" for="casual">CASUAL</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="simulation"
+                    <input class="form-check-input" type="radio" name="genre" id="14"
                         value="simulation">
                     <label class="form-check-label" for="simulation">SIMULATION</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="puzzle" value="puzzle">
+                    <input class="form-check-input" type="radio" name="genre" id="puzzle" value="2">
                     <label class="form-check-label" for="puzzle">PUZZLE</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="arcade" value="arcade">
+                    <input class="form-check-input" type="radio" name="genre" id="arcade" value="11">
                     <label class="form-check-label" for="arcade">ARCADE</label>
                 </div>
+                <!--need id for platformer-->
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="platformer"
+                    <input class="form-check-input" type="radio" name="genre" id="??"
                         value="platformer">
                     <label class="form-check-label" for="platformer">PLATFORMER</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="racing" value="racing">
+                    <input class="form-check-input" type="radio" name="genre" id="racing" value="1">
                     <label class="form-check-label" for="racing">RACING</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sports" value="sports">
+                    <input class="form-check-input" type="radio" name="genre" id="sports" value="15">
                     <label class="form-check-label" for="sports">SPORTS</label>
                 </div>
             </div>
             <div class="col-6">
                 <h1>TAGS</h1>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="single-player" value="single-player">
+                    <input class="form-check-input" name="tags" type="checkbox" id="single-player" value="31">
                     <label class="form-check-label" for="single-player">SINGLE PLAYER</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="multiplayer" value="multiplayer">
+                    <input class="form-check-input" name="tags" type="checkbox" id="multiplayer" value="7">
                     <label class="form-check-label" for="multiplayer">MULTIPLAYER</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="controller" value="controller">
+                    <input class="form-check-input" name="tags" type="checkbox" id="controller" value="40836">
                     <label class="form-check-label" for="controller">FULL CONTROLLER SUPPORT</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="soundtrack" value="soundtrack">
+                    <input class="form-check-input" name="tags" type="checkbox" id="soundtrack" value="42">
                     <label class="form-check-label" for="soundtrack">GREAT SOUNDTRACK</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="coop" value="coop">
+                    <input class="form-check-input" name="tags" type="checkbox" id="coop" value="18">
                     <label class="form-check-label" for="coop">CO-OP</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="first-person" value="first-person">
+                    <input class="form-check-input" name="tags" type="checkbox" id="first-person" value="8">
                     <label class="form-check-label" for="first-person">FIRST PERSON</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="pve" value="pve">
+                    <input class="form-check-input" name="tags" type="checkbox" id="pve" value="171">
                     <label class="form-check-label" for="pve">PVE</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="pvp" value="pvp">
+                    <input class="form-check-input" name="tags" type="checkbox" id="pvp" value="157">
                     <label class="form-check-label" for="pvp">PVP</label>
                 </div>
             </div>
         </div>
-
-        <!-- <table>
-                <h1>GENRE</h1>
-                <tr>
-                </tr>
-                <tr>
-                    <td><label><input type="checkbox" value="action"><span>ACTION</span></label></td>
-                    <td><label><input type="checkbox" value="indie"><span>INDIE</span></label></td>
-                    <td><label><input type="checkbox" value="adventure"><span>ADVENTURE</span></label></td>
-                    <td><label><input type="checkbox" value="rpg"><span>RPG</span></label></td>
-                    <td><label><input type="checkbox" value="strategy"><span>STRATEGY</span></label></td>
-                </tr>
-                <tr>
-                    <td><label><input type="checkbox" value="shooter"><span>SHOOTER</span></label></td>
-                    <td><label><input type="checkbox" value="casual"><span>CASUAL</span></label></td>
-                    <td><label><input type="checkbox" value="simulation"><span>SIMULATION</span></label></td>
-                    <td><label><input type="checkbox" value="puzzle"><span>PUZZLE</span></label></td>
-                    <td><label><input type="checkbox" value="arcade"><span>ARCADE</span></label></td>
-                </tr>
-                <tr>
-                    <td><label><input type="checkbox" value="platformer"><span>PLATFORMER</span></label></td>
-                    <td><label><input type="checkbox" value="racing"><span>RACING</span></label></td>
-                    <td><label><input type="checkbox" value="sports"><span>SPORTS</span></label></td>
-                    <td><label><input type="checkbox" value="massive multiplayer"><span>MASSIVE
-                                MULTIPLAYER</span></label>
-                    </td>
-                    <td><label><input type="checkbox" value="family"><span>FAMILY</span></label></td>
-                </tr>
-                <tr>
-                    <td><label><input type="checkbox" value="fighting"><span>FIGHTING</span></label></td>
-                    <td><label><input type="checkbox" value="board games"><span>BOARD GAMES</span></label></td>
-                    <td><label><input type="checkbox" value="card"><span>CARD</span></label></td>
-                    <td><label><input type="checkbox" value="educational"><span>EDUCATIONAL</span></label></td>
-
-                </tr>
-            </table>
-        </div> -->
-
-        <!-- RESULTS -->
-
+        <button type="button" id="search">Search</button>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <h1>GAME TITLE</h1>
-                    <img src="logo.PNG">
-                    <h3>PLATFORMS</h3>
-                    <h3>DESCRIPTION</h3>
+                    <h1 class="title">GAME TITLE</h1>
+                    <img class = "screenshot" src="logo.PNG">
+                    <h3 class="platforms">PLATFORMS</h3>
+                    <h3 class="description">DESCRIPTION</h3>
                 </div>
             </div>
         </div>
     </div>
 
     <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>    
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/homepage.js"></script>
 
 </body>
