@@ -206,7 +206,7 @@ async function gameSearch() {
     const randGame = result.results[randNumber];
     console.log('randGame:', randGame);
 
-    let randGameID = randGame.id;
+    const randGameID = randGame.id;
     console.log('randGameID:', randGameID);
 
     const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
@@ -222,7 +222,7 @@ async function gameSearch() {
 //Temporary call to start the function for API testing purposes
 gameSearch();
 
-//Kick off the search with the front end submit button
+//Kick off the search with the front end submit button or wrap this around gameSearch function
 /* $('#searchGames').on('click', (event) => {
     event.preventDefault();
     gameSearch();
@@ -233,18 +233,34 @@ gameSearch();
 
 //need to get ID of game that was liked from the database
 
-function getSavedGameDetails() {
+async function getSavedGameDetails() {
     
-    let savedGameID = "Replace with method to get ID from DB";
+    const savedGameID = "Replace with method to get ID from DB";
 
     const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
     
-            $.ajax({
-                url: queryUrl,
-                type: "GET"
-            })
+    const response = await $.ajax({
+        url: queryUrl,
+        type: "GET"
+    })
+
+    console.log('SAVED GAME DETAILS!!!', response);
+};
+
+
+
+//Search for visually similar games to the game that was saved or that is dispalyed
+
+async function getSavedGameDetails() {
     
-            .then(response => {
-                console.log('SAVED GAME DETAILS!!!', response);
-            })
+    const savedGameID = "Replace with method to get ID from DB";
+
+    const queryUrl = `https://api.rawg.io/api/games/${savedGameID}/suggested`;
+    
+    const response = await $.ajax({
+        url: queryUrl,
+        type: "GET"
+    })
+
+    console.log('SAVED GAME DETAILS!!!', response);
 };
