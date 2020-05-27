@@ -187,7 +187,7 @@ console.log('newTags:', newTags);
 
 
 async function gameSearch() {
-    const searchQuery = `platforms=187&genres=4&tags=${newTags}`;
+    const searchQuery = `platforms=4&genres=51&tags=${newTags}&page_size=37`;
 
     // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
@@ -201,7 +201,7 @@ async function gameSearch() {
     console.log('THIS IS THE FIRST RESPONSE', result);
 
     // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
-
+    //should switch random number logic to math.random * result.results.length & move inside this function
     console.log('random number: ', randNumber);
     const randGame = result.results[randNumber];
     console.log('randGame:', randGame);
