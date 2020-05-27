@@ -1,4 +1,4 @@
-// import { response } from "express";
+
 
 let singlePlayer = 0;
 let multiPlayer = 0;
@@ -9,6 +9,7 @@ let firstPerson = 0;
 let pVe = 0;
 let pVp = 0;
 let newTags = 0;
+let randNumber = Math.floor(Math.random() * 10);
 let randGameID = 0;
 let allTags = [];
 
@@ -196,47 +197,38 @@ newTags = allTags.toString();
 console.log('newTags:', newTags);
 
 
-const gameSearch = () => {
+
+async function gameSearch() {
     const searchQuery = `platforms=187&genres=4&tags=${newTags}`;
 
     // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
     const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
 
-    $.ajax({
+    const result = await $.ajax({
         url: queryUrl,
         type: "GET"
     })
 
-    .then(response => {
-        console.log(response);
+    console.log('THIS IS THE FIRST RESPONSE', result);
 
-        // Getting random number to select random game (maybe increase list size in first api call and then change '10')
-        const randNumber = Math.floor(Math.random() * 10);
-        console.log('number:', randNumber);
+    // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
 
-        const randGame = response.results[randNumber];
-        console.log('randGame:', randGame);
+    console.log('random number: ', randNumber);
+    const randGame = result.results[randNumber];
+    console.log('randGame:', randGame);
 
-        let randGameID = randGame.id;
-        console.log('randGameID:', randGameID);
-        
-        //need to async await ajax call so that this can be its on function outside of the .then and just called here.
-        
-        //function getGameDetials() {
+    let randGameID = randGame.id;
+    console.log('randGameID:', randGameID);
 
-            const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
-    
-            $.ajax({
-                url: queryUrl2,
-                type: "GET"
-            })
-    
-            .then(response => {
-                console.log('GAME DETAILS!!!', response);
-            })
-        // }
+    const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
+
+    const result2 = await $.ajax({
+        url: queryUrl2,
+        type: "GET"
     })
+
+    console.log('GAME DETAILS RESPONSE: ', result2);
 };
 
 //Temporary call to start the function for API testing purposes
@@ -247,14 +239,6 @@ gameSearch();
     event.preventDefault();
     gameSearch();
 }); */
-
-
-
-
-
-
-
-
 
 
 //---------------------------PREVIOUS LIKED GAME SEARCH---------------------------//
@@ -275,4 +259,4 @@ function getSavedGameDetails() {
             .then(response => {
                 console.log('SAVED GAME DETAILS!!!', response);
             })
-}
+};
