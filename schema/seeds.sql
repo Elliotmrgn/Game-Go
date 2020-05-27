@@ -1,0 +1,1 @@
+INSERT INTO games (name, slug, description, metacritic, released, background_image, website, gameId) VALUES ('')

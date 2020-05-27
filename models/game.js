@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
     metacritic: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
     },
     released: {
       type: DataTypes.STRING,
