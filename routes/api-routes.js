@@ -55,7 +55,7 @@ module.exports = (app) => {
   app.post("/api/saveGame", async (req, res) => {
     const {
       name,
-      id,
+      gameId,
       UserId,
       slug,
       description,
@@ -67,7 +67,7 @@ module.exports = (app) => {
     try {
       const addGame = await db.Game.create({
         name,
-        gameId: id,
+        gameId,
         slug,
         description,
         metacritic,
