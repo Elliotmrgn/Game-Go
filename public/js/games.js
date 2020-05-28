@@ -93,7 +93,7 @@ switch (genreId) {
         break;
 
     case "Puzzle":
-        genreId = 2;
+        genreId = 7;
         break;
 
     case "Arcade":
