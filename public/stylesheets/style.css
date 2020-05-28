@@ -194,19 +194,18 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
   padding: 16px;
   text-align: center;
-  background-color: #3a3a3a;
+  background-color: #424242;
   margin-top: 250px;
   max-height: 1000px;
   color: rgb(255, 255, 255);
-  box-shadow: 7px 7px 7px #505050;
-  z-index: -1;
+  box-shadow: 7px 7px 7px #585858;
 }
 
 img {
-  max-width: 600px;
-  max-height: 600px;
-  margin-left: auto;
+  max-width: 940px;
+  max-height: 540px;
   margin-right: auto;
+  margin-left: auto;
 }
 
 
@@ -236,16 +235,11 @@ table caption {
   font-style: italic ;
 }
 
-
-
-
 #checkBtns {
     margin:4px;
     overflow:auto;
     float:left;
 }
-
-
 
 #checkBtns label span {
     text-align:center;
@@ -276,3 +270,11 @@ table caption {
 .customBackground {
   background-color: red;
 }
+
+#carousel-example-2 {
+  max-width: 940px;
+  max-height: 540px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
