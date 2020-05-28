@@ -1,5 +1,3 @@
-
-
 let singlePlayer = 0;
 let multiPlayer = 0;
 let controllerSupport = 0;
@@ -13,11 +11,9 @@ let randNumber = Math.floor(Math.random() * 10);
 let randGameID = 0;
 let allTags = [];
 
-
 //---------------------------RANDOM GAME SEARCH---------------------------//
 
-
-let platformId = $('#platformDrop').val();
+let platformId = $("#platformDrop").val();
 
 switch (platformId) {
   case "PC":
@@ -52,77 +48,79 @@ switch (platformId) {
     platformId = 16;
     break;
 
-    case "SNES":
-        platformId = 79;
-        break;
+  case "SNES":
+    platformId = 79;
+    break;
+
 };
 
-let genreId = $('#genreDrop').val();
+let genreId = $("#genreDrop").val();
 
 switch (genreId) {
-    case "Action":
-        genreId = 4;
-        break;
 
-    case "Indie":
-        genreId = 51;
-        break;
+  case "action":
+    genreId = 4;
+    break;
 
-    case "Adventure":
-        genreId = 3;
-        break;
+  case "indie":
+    genreId = 51;
+    break;
 
-    case "RPG":
-        genreId = 5;
-        break;
+  case "adventure":
+    genreId = 3;
+    break;
 
-    case "Strategy":
-        genreId = 10;
-        break;
+  case "rpg":
+    genreId = 5;
+    break;
 
-    case "Shooter":
-        genreId = 2;
-        break;
+  case "strategy":
+    genreId = 10;
+    break;
 
-    case "Casual":
-        genreId = 40;
-        break;
+  case "shooter":
+    genreId = 2;
+    break;
 
-    case "Simulation":
-        genreId = 14;
-        break;
+  case "casual":
+    genreId = 40;
+    break;
+
+  case "simulation":
+    genreId = 14;
+    break;
 
     case "Puzzle":
-        genreId = 2;
+        genreId = 7;
         break;
 
-    case "Arcade":
-        genreId = 11;
-        break;
+  case "arcade":
+    genreId = 11;
+    break;
 
-    case "Racing":
-        genreId = 1;
-        break;
+  case "racing":
+    genreId = 1;
+    break;
 
-    case "Sports":
-        genreId = 15;
-        break;
+  case "sports":
+    genreId = 15;
+    break;
 
-    case "Massively Multiplayer":
-        genreId = 259;
-        break;
+  case "massively Multiplayer":
+    genreId = 259;
+    break;
 
-    case "Fighting":
-        genreId = 6;
-        break;
+  case "fighting":
+    genreId = 6;
+    break;
 
-    case "Board":
-        genreId = 28;
-        break;
+  case "board":
+      genreId = 28;
+      break;
 
-    case "Card":
-        genreId = 17;
-        break;
+  case "card":
+    genreId = 17;
+    break;
 };
 
 //THESE ARE THE ACTUAL TAG CALLS TO BE USED WITH FRONT END
@@ -133,12 +131,12 @@ switch (genreId) {
 
 // if ($('#multiPlayer').attr('checked')) {
 //     multiPlayer = 7;
-//     allTags.push(multiPlayer);  
+//     allTags.push(multiPlayer);
 // };
 
 // if ($('#contollerSupport').attr('checked')) {
 //     controllerSupport = 40836;
-//     allTags.push(controllerSupport);    
+//     allTags.push(controllerSupport);
 // };
 
 // if ($('#greatSoundtrack').attr('checked')) {
@@ -179,72 +177,88 @@ allTags.push(controllerSupport);
 coOp = 18;
 allTags.push(coOp);
 
-
 newTags = allTags.toString();
 
-console.log('newTags:', newTags);
-
-
+console.log("newTags:", newTags);
 
 async function gameSearch() {
-    const searchQuery = `platforms=187&genres=4&tags=${newTags}`;
 
-    // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
+    const searchQuery = `platforms=4&genres=51&tags=${newTags}&page_size=37`;
 
-    const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
 
-    const result = await $.ajax({
-        url: queryUrl,
-        type: "GET"
-    })
+  // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
-    console.log('THIS IS THE FIRST RESPONSE', result);
+  const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
+
+  const result = await $.ajax({
+    url: queryUrl,
+    type: "GET",
+  });
+
+  console.log("THIS IS THE FIRST RESPONSE", result);
 
     // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
-
+    //should switch random number logic to math.random * result.results.length & move inside this function
     console.log('random number: ', randNumber);
     const randGame = result.results[randNumber];
     console.log('randGame:', randGame);
 
-    let randGameID = randGame.id;
+    const randGameID = randGame.id;
     console.log('randGameID:', randGameID);
 
-    const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
 
-    const result2 = await $.ajax({
-        url: queryUrl2,
-        type: "GET"
-    })
+  const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
 
-    console.log('GAME DETAILS RESPONSE: ', result2);
-};
+  const result2 = await $.ajax({
+    url: queryUrl2,
+    type: "GET",
+  });
+
+  console.log("GAME DETAILS RESPONSE: ", result2);
+}
 
 //Temporary call to start the function for API testing purposes
 gameSearch();
 
-//Kick off the search with the front end submit button
+//Kick off the search with the front end submit button or wrap this around gameSearch function
 /* $('#searchGames').on('click', (event) => {
     event.preventDefault();
     gameSearch();
 }); */
 
-
 //---------------------------PREVIOUS LIKED GAME SEARCH---------------------------//
 
 //need to get ID of game that was liked from the database
 
-function getSavedGameDetails() {
+async function getSavedGameDetails() {
     
-    let savedGameID = "Replace with method to get ID from DB";
+    const savedGameID = "Replace with method to get ID from DB";
 
     const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
     
-            $.ajax({
-                url: queryUrl,
-                type: "GET"
-            })
-    
-            .then(response => {
-                console.log('SAVED GAME DETAILS!!!', response);
-            })
+    const response = await $.ajax({
+        url: queryUrl,
+        type: "GET"
+    })
+
+    console.log('SAVED GAME DETAILS!!!', response);
 };
+
+
+
+//Search for visually similar games to the game that was saved or that is dispalyed
+
+async function getSavedGameDetails() {
+    
+    const savedGameID = "Replace with method to get ID from DB";
+
+    const queryUrl = `https://api.rawg.io/api/games/${savedGameID}/suggested`;
+    
+    const response = await $.ajax({
+        url: queryUrl,
+        type: "GET"
+    })
+
+    console.log('SAVED GAME DETAILS!!!', response);
+};
+
