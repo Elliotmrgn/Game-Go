@@ -11,11 +11,9 @@ let randNumber = Math.floor(Math.random() * 10);
 let randGameID = 0;
 let allTags = [];
 
-
 //---------------------------RANDOM GAME SEARCH---------------------------//
 
-
-let platformId = $('#platformDrop').val();
+let platformId = $("#platformDrop").val();
 
 switch (platformId) {
   case "PC":
@@ -53,11 +51,13 @@ switch (platformId) {
   case "SNES":
     platformId = 79;
     break;
+
 };
 
-let genreId = $('#genreDrop').val();
+let genreId = $("#genreDrop").val();
 
 switch (genreId) {
+
   case "action":
     genreId = 4;
     break;
@@ -131,12 +131,12 @@ switch (genreId) {
 
 // if ($('#multiPlayer').attr('checked')) {
 //     multiPlayer = 7;
-//     allTags.push(multiPlayer);  
+//     allTags.push(multiPlayer);
 // };
 
 // if ($('#contollerSupport').attr('checked')) {
 //     controllerSupport = 40836;
-//     allTags.push(controllerSupport);    
+//     allTags.push(controllerSupport);
 // };
 
 // if ($('#greatSoundtrack').attr('checked')) {
@@ -177,26 +177,25 @@ allTags.push(controllerSupport);
 coOp = 18;
 allTags.push(coOp);
 
-
 newTags = allTags.toString();
 
-console.log('newTags:', newTags);
-
-
+console.log("newTags:", newTags);
 
 async function gameSearch() {
+
     const searchQuery = `platforms=4&genres=51&tags=${newTags}&page_size=37`;
 
-    // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
-    const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
+  // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
-    const result = await $.ajax({
-        url: queryUrl,
-        type: "GET"
-    })
+  const queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
 
-    console.log('THIS IS THE FIRST RESPONSE', result);
+  const result = await $.ajax({
+    url: queryUrl,
+    type: "GET",
+  });
+
+  console.log("THIS IS THE FIRST RESPONSE", result);
 
     // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
     //should switch random number logic to math.random * result.results.length & move inside this function
@@ -207,15 +206,16 @@ async function gameSearch() {
     const randGameID = randGame.id;
     console.log('randGameID:', randGameID);
 
-    const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
 
-    const result2 = await $.ajax({
-        url: queryUrl2,
-        type: "GET"
-    })
+  const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
 
-    console.log('GAME DETAILS RESPONSE: ', result2);
-};
+  const result2 = await $.ajax({
+    url: queryUrl2,
+    type: "GET",
+  });
+
+  console.log("GAME DETAILS RESPONSE: ", result2);
+}
 
 //Temporary call to start the function for API testing purposes
 gameSearch();
@@ -225,7 +225,6 @@ gameSearch();
     event.preventDefault();
     gameSearch();
 }); */
-
 
 //---------------------------PREVIOUS LIKED GAME SEARCH---------------------------//
 
@@ -262,3 +261,4 @@ async function getSavedGameDetails() {
 
     console.log('SAVED GAME DETAILS!!!', response);
 };
+
