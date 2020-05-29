@@ -43,21 +43,21 @@
             aria-expanded="false" aria-controls="search-params">
             New Search
         </button>
-        <div class="collapse" id="search-params">
+        <div class="collapse show" id="search-params">
             <div class="row">
                 <div class="col-12">
                     <h1>PLATFORM</h1>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="platform" id="xbox-one" value="1">
-                        <label class="form-check-label" for="inlineRadio1">XBOX ONE</label>
+                        <label class="form-check-label" for="xbox-one">XBOX ONE</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="platform" id="ps4" value="18">
-                        <label class="form-check-label" for="inlineRadio1">PS4</label>
+                        <label class="form-check-label" for="ps4">PS4</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="platform" id="pc" value="4">
-                        <label class="form-check-label" for="inlineRadio1">PC</label>
+                        <label class="form-check-label" for="pc">PC</label>
                     </div>
                 </div>
             </div>
@@ -153,36 +153,75 @@
             <button type="button" id="search">Search</button>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <div class="card">
-                    <h1 class="title">GAME TITLE</h1>
+
                     <!--Carousel Wrapper-->
-                    <div id="screenshot-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-                        <!--Indicators-->
-                        <ol class="carousel-indicators">
-                            
-                        </ol>
-                        <!--/.Indicators-->
-                        <!--Slides-->
-                        <div class="carousel-inner" role="listbox">
-                            
-                            
+                    <div class=row>
+                        <div class="col-12">
+                            <div id="screenshot-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                </ol>
+                                <div class="carousel-inner" role="listbox">
+                                </div>
+                                <a class="carousel-control-prev" href="#screenshot-carousel" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#screenshot-carousel" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
                         </div>
-                        <!--/.Slides-->
-                        <!--Controls-->
-                        <a class="carousel-control-prev" href="#screenshot-carousel" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#screenshot-carousel" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                        <!--/.Controls-->
                     </div>
                     <!--/.Carousel Wrapper-->
-                    <h3 class="platforms">PLATFORMS</h3>
-                    <div class="description">DESCRIPTION</div>
+                    <!-- TITLE -->
+                    <div class=row>
+                        <div class="col-12">
+                            <div class="title">testing</div>
+                        </div>
+                        <div class="col-8">
+                            <h3>DESCRIPTION</h3>
+                            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Debitis
+                                minus aliquid culpa, ad sequi unde quis molestias iste in excepturi dolor
+                                pariatur
+                                facilis vitae commodi reiciendis totam amet beatae nulla? Lorem ipsum dolor sit amet
+                                consectetur
+                                adipisicing elit.
+                                Debitis
+                                minus aliquid culpa, ad sequi unde quis molestias iste in excepturi dolor
+                                pariatur
+                                facilis vitae commodi reiciendis totam amet beatae nulla?Lorem ipsum dolor sit amet
+                                consectetur
+                                adipisicing elit.
+                                Debitis
+                                minus aliquid culpa, ad sequi unde quis molestias iste in excepturi dolor
+                                pariatur
+                                facilis vitae commodi reiciendis totam amet beatae nulla?Lorem ipsum dolor sit amet
+                                consectetur
+                                adipisicing elit.
+                                Debitis
+                                minus aliquid culpa, ad sequi unde quis molestias iste in excepturi dolor
+                                pariatur
+                                facilis vitae commodi reiciendis totam amet beatae nulla?</p>
+                        </div>
+                        <div class="col-4">
+                            <div class="side-card">
+                                <div class="side-card-box">
+                                    <h3>PLATFORMS</h3>
+                                    <ul class="platforms"></ul>
+                                </div>
+                                <div class="side-card-box">
+                                    <h3>STORES</h3>
+                                    <ul class="stores"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
