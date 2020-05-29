@@ -20,6 +20,7 @@ $(document).ready(function () {
         }).then(result => {
             console.log(result)
             //picks a random game 1 - max
+            //hack fix b/c api only lets 10k results
             let randGame = 10001;
             do {
                 randGame = Math.ceil(Math.random() * result.count)
@@ -48,10 +49,37 @@ $(document).ready(function () {
                     type: "GET"
                 }).then(game => {
                     console.log("****GAME*****", game)
+                    console.log("game", game.slug)
+                    $.ajax({
+                        url: `https://api.rawg.io/api/games/${game.slug}/screenshots`,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        type: "GET"
+                    }).then(screenshots => {
+                        console.log("screenshots***********", screenshots)
+                        $(".carousel-indicators").empty();
+                        $(".carousel-inner").empty();
+                        screenshots.results.forEach((screenshot, i) => {
+                            $(".carousel-indicators").append(`<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`)
+                            $(".carousel-inner").append(`
+                            <div class="carousel-item">
+                                <div class="view">
+                                    <img class="d-block w-100"
+                                        src="${screenshot.image}"
+                                        alt="First slide">
+                                    <div class="mask rgba-black-slight">
+                                    </div>
+                                </div>
+                            </div>
+                            `)
+                            if(i===0){
+                                $(".carousel-indicators").addClass("active")
+                                $(".carousel-item").addClass("active")
+                            }
+                        })
+                    })
                     //title update
                     $(".title").text(game.name)
-                    //screenshot update
-                    $(".screenshot").attr("src", game.background_image)
                     //creates an array of all platforms for the game and updates
                     const allPlatforms = []
                     game.platforms.forEach(platform => {
