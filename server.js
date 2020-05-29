@@ -5,18 +5,29 @@ const session = require("express-session");
 const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 7080;
 const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Handlebars
+const exphbs = require("express-handlebars");
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set("view engine", "handlebars");
+
+//Requiring controller
+const routes = require('./controllers/gameController.js');
+app.use(routes);
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
