@@ -10,7 +10,10 @@ router.get("/saved-games", (req, res) => {
     db.Game.findAll()
       .then(data => {
       console.log('These are the games!!!!!', data)
-      res.render("savedGames", data);
+      res.render("savedGames", {
+        data,
+        style: 'savedGames.css'
+      });
     });
   });
 
