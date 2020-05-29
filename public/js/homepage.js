@@ -1,6 +1,11 @@
+
+
 $(document).ready(function () {
     $('#search').on('click', (event) => {
         event.preventDefault();
+        $(".card").hide();
+        //TODO CREATE INIT TO CLEAR ALL DATA
+        init();
         //gets platform value
         let platform = $("input[name='platform']:checked").val();
         //gets genre value
@@ -10,6 +15,7 @@ $(document).ready(function () {
             return $(this).val();
         }).get();
         //combines for search query
+        //TODO ADD CASE FOR UNSELECTED PROMPTS
         let searchQuery = `platforms=${platform}&genres=${genre}&tags=${tags}`;
 
         let queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
@@ -57,8 +63,6 @@ $(document).ready(function () {
                         type: "GET"
                     }).then(screenshots => {
                         console.log("screenshots***********", screenshots)
-                        $(".carousel-indicators").empty();
-                        $(".carousel-inner").empty();
                         screenshots.results.forEach((screenshot, i) => {
                             $(".carousel-indicators").append(`<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`)
                             $(".carousel-inner").append(`
@@ -72,24 +76,49 @@ $(document).ready(function () {
                                 </div>
                             </div>
                             `)
-                            if(i===0){
+                            if (i === 0) {
                                 $(".carousel-indicators").addClass("active")
                                 $(".carousel-item").addClass("active")
                             }
+
                         })
                     })
                     //title update
-                    $(".title").text(game.name)
+                    $(".title").html(`<h1>${game.name}</h1>`)
                     //creates an array of all platforms for the game and updates
-                    const allPlatforms = []
+                    
                     game.platforms.forEach(platform => {
-                        allPlatforms.push(` ${platform.platform.name}`)
+                        //allPlatforms.push(` ${platform.platform.name}`)
+                        $(".platforms").append(`<li>${platform.platform.name}</li>`)
                     });
-                    $(".platforms").text(allPlatforms)
+                    game.stores.forEach(store => {
+                        //allPlatforms.push(` ${platform.platform.name}`)
+                        $(".stores").append(`<li><a target="_blank" href="${store.url}">${store.store.name}</a></li>`)
+                    });
+                    let description
+                    if (game.description){description = game.description}
+                    else{description = game.description_raw}
                     $(".description").html(game.description)
+                    if (game.metacritic) {
+                        $(".side-card").append(`
+                        <div class="side-card-box metacritic">
+                            <h3>METASCORE</h3>
+                            <span class="metascore">${game.metacritic}</span>
+                        </div>`)
+                    }
+                    $(".card").show();
                 })
             })
         })
     });
-
+    const init = ()=>{
+        $(".carousel-indicators").empty();
+        $(".carousel-inner").empty();
+        $(".title").empty();
+        $(".description").empty();
+        $(".platforms").empty();
+        $(".stores").empty();
+        $(".metacritic").remove();
+    }
 })
+
