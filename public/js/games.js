@@ -51,75 +51,77 @@ switch (platformId) {
   case "SNES":
     platformId = 79;
     break;
-}
+
+};
 
 let genreId = $("#genreDrop").val();
 
 switch (genreId) {
-  case "Action":
+
+  case "action":
     genreId = 4;
     break;
 
-  case "Indie":
+  case "indie":
     genreId = 51;
     break;
 
-  case "Adventure":
+  case "adventure":
     genreId = 3;
     break;
 
-  case "RPG":
+  case "rpg":
     genreId = 5;
     break;
 
-  case "Strategy":
+  case "strategy":
     genreId = 10;
     break;
 
-  case "Shooter":
+  case "shooter":
     genreId = 2;
     break;
 
-  case "Casual":
+  case "casual":
     genreId = 40;
     break;
 
-  case "Simulation":
+  case "simulation":
     genreId = 14;
     break;
 
-  case "Puzzle":
-    genreId = 2;
-    break;
+    case "Puzzle":
+        genreId = 7;
+        break;
 
-  case "Arcade":
+  case "arcade":
     genreId = 11;
     break;
 
-  case "Racing":
+  case "racing":
     genreId = 1;
     break;
 
-  case "Sports":
+  case "sports":
     genreId = 15;
     break;
 
-  case "Massively Multiplayer":
+  case "massively Multiplayer":
     genreId = 259;
     break;
 
-  case "Fighting":
+  case "fighting":
     genreId = 6;
     break;
 
-  case "Board":
-    genreId = 28;
-    break;
+  case "board":
+      genreId = 28;
+      break;
 
-  case "Card":
+  case "card":
     genreId = 17;
     break;
-}
+};
 
 //THESE ARE THE ACTUAL TAG CALLS TO BE USED WITH FRONT END
 // if ($('#singlePlayer').attr('checked')) {
@@ -180,7 +182,9 @@ newTags = allTags.toString();
 console.log("newTags:", newTags);
 
 async function gameSearch() {
-  const searchQuery = `platforms=187&genres=4&tags=${newTags}`;
+
+    const searchQuery = `platforms=4&genres=51&tags=${newTags}&page_size=37`;
+
 
   // const searchQuery = `platforms=${platformId}&genres=${genreId}&tags=${newTags}`;
 
@@ -193,14 +197,15 @@ async function gameSearch() {
 
   console.log("THIS IS THE FIRST RESPONSE", result);
 
-  // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
+    // // Getting random number to select random game (maybe increase list size in first api call and then change '10')
+    //should switch random number logic to math.random * result.results.length & move inside this function
+    console.log('random number: ', randNumber);
+    const randGame = result.results[randNumber];
+    console.log('randGame:', randGame);
 
-  console.log("random number: ", randNumber);
-  const randGame = result.results[randNumber];
-  console.log("randGame:", randGame);
+    const randGameID = randGame.id;
+    console.log('randGameID:', randGameID);
 
-  let randGameID = randGame.id;
-  console.log("randGameID:", randGameID);
 
   const queryUrl2 = `https://api.rawg.io/api/games/${randGameID}`;
 
@@ -215,7 +220,7 @@ async function gameSearch() {
 //Temporary call to start the function for API testing purposes
 gameSearch();
 
-//Kick off the search with the front end submit button
+//Kick off the search with the front end submit button or wrap this around gameSearch function
 /* $('#searchGames').on('click', (event) => {
     event.preventDefault();
     gameSearch();
@@ -225,16 +230,35 @@ gameSearch();
 
 //need to get ID of game that was liked from the database
 
-function getSavedGameDetails() {
-  let savedGameID = "Replace with method to get ID from DB";
+async function getSavedGameDetails() {
+    
+    const savedGameID = "Replace with method to get ID from DB";
 
-  const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
+    const queryUrl = `https://api.rawg.io/api/games/${savedGameID}`;
+    
+    const response = await $.ajax({
+        url: queryUrl,
+        type: "GET"
+    })
 
-  $.ajax({
-    url: queryUrl,
-    type: "GET",
-  })
-  .then((response) => {
-    console.log("SAVED GAME DETAILS!!!", response);
-  });
-}
+    console.log('SAVED GAME DETAILS!!!', response);
+};
+
+
+
+//Search for visually similar games to the game that was saved or that is dispalyed
+
+async function getSavedGameDetails() {
+    
+    const savedGameID = "Replace with method to get ID from DB";
+
+    const queryUrl = `https://api.rawg.io/api/games/${savedGameID}/suggested`;
+    
+    const response = await $.ajax({
+        url: queryUrl,
+        type: "GET"
+    })
+
+    console.log('SAVED GAME DETAILS!!!', response);
+};
+
