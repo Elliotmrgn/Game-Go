@@ -1,71 +1,80 @@
+$(document).ready(function() {
+  const randomizedGame = [];
+  $("#search").on("click", (event) => {
+    event.preventDefault();
+    $(".card").hide();
+    //TODO CREATE INIT TO CLEAR ALL DATA
+    init();
+    //gets platform value
+    let platform = $("input[name='platform']:checked").val();
+    //gets genre value
+    let genre = $("input[name='genre']:checked").val();
+    //gets all tag values
+    let tags = $("input[name='tags']:checked")
+      .map(function() {
+        return $(this).val();
+      })
+      .get();
+    //combines for search query
+    //TODO ADD CASE FOR UNSELECTED PROMPTS
+    let searchQuery = `platforms=${platform}&genres=${genre}&tags=${tags}`;
 
+    let queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
+    //first ajax call for all results
+    $.ajax({
+      url: queryUrl,
+      type: "GET",
+    }).then((result) => {
+      console.log(result);
+      //picks a random game 1 - max
+      //hack fix b/c api only lets 10k results
+      let randGame = 10001;
+      do {
+        randGame = Math.ceil(Math.random() * result.count);
+      } while (randGame > 10000);
+      console.log("randGame", randGame);
+      //finds what page a game is on
+      const gamePage = Math.ceil(randGame / 20);
+      console.log("gamePage", gamePage);
+      //find what array slot its in
+      let gameSlot = (randGame % 20) - 1;
+      console.log("gameSlot", gameSlot);
+      //case for last slot ****should be a better solution than this
+      if (gameSlot === -1) {
+        gameSlot = 19;
+      }
+      //new ajax call for that page
+      queryUrl += `&page=${gamePage}`;
+      console.log("queryUrl", queryUrl);
+      $.ajax({
+        url: queryUrl,
+        type: "GET",
+      }).then((results) => {
+        //new page results
+        console.log("RANDOM PAGE RESULTS", results);
 
-$(document).ready(function () {
-    $('#search').on('click', (event) => {
-        event.preventDefault();
-        $(".card").hide();
-        //TODO CREATE INIT TO CLEAR ALL DATA
-        init();
-        //gets platform value
-        let platform = $("input[name='platform']:checked").val();
-        //gets genre value
-        let genre = $("input[name='genre']:checked").val();
-        //gets all tag values
-        let tags = $("input[name='tags']:checked").map(function () {
-            return $(this).val();
-        }).get();
-        //combines for search query
-        //TODO ADD CASE FOR UNSELECTED PROMPTS
-        let searchQuery = `platforms=${platform}&genres=${genre}&tags=${tags}`;
-
-        let queryUrl = `https://api.rawg.io/api/games?${searchQuery}`;
-        //first ajax call for all results
         $.ajax({
-            url: queryUrl,
-            type: "GET"
-        }).then(result => {
-            console.log(result)
-            //picks a random game 1 - max
-            //hack fix b/c api only lets 10k results
-            let randGame = 10001;
-            do {
-                randGame = Math.ceil(Math.random() * result.count)
-            } while (randGame > 10000);
-            console.log("randGame", randGame)
-            //finds what page a game is on
-            const gamePage = Math.ceil(randGame / 20);
-            console.log("gamePage", gamePage)
-            //find what array slot its in
-            let gameSlot = (randGame % 20) - 1;
-            console.log("gameSlot", gameSlot)
-            //case for last slot ****should be a better solution than this
-            if (gameSlot === -1) { gameSlot = 19; }
-            //new ajax call for that page
-            queryUrl += `&page=${gamePage}`;
-            console.log("queryUrl", queryUrl)
-            $.ajax({
-                url: queryUrl,
-                type: "GET"
-            }).then(results => {
-                //new page results 
-                console.log("RANDOM PAGE RESULTS", results)
+          url: `https://api.rawg.io/api/games/${results.results[gameSlot].id}`,
+          type: "GET",
+        }).then((game) => {
+          randomizedGame.pop();
+          randomizedGame.push(game);
+          console.log("randomizedGame", randomizedGame);
 
-                $.ajax({
-                    url: `https://api.rawg.io/api/games/${results.results[gameSlot].id}`,
-                    type: "GET"
-                }).then(game => {
-                    console.log("****GAME*****", game)
-                    console.log("game", game.slug)
-                    $.ajax({
-                        url: `https://api.rawg.io/api/games/${game.slug}/screenshots`,
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json",
-                        type: "GET"
-                    }).then(screenshots => {
-                        console.log("screenshots***********", screenshots)
-                        screenshots.results.forEach((screenshot, i) => {
-                            $(".carousel-indicators").append(`<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`)
-                            $(".carousel-inner").append(`
+          console.log("****GAME*****", game);
+          console.log("game", game.slug);
+          $.ajax({
+            url: `https://api.rawg.io/api/games/${game.slug}/screenshots`,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            type: "GET",
+          }).then((screenshots) => {
+            console.log("screenshots***********", screenshots);
+            screenshots.results.forEach((screenshot, i) => {
+              $(".carousel-indicators").append(
+                `<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`
+              );
+              $(".carousel-inner").append(`
                             <div class="carousel-item">
                                 <div class="view">
                                     <img class="d-block w-100"
@@ -75,17 +84,16 @@ $(document).ready(function () {
                                     </div>
                                 </div>
                             </div>
-                            `)
-                            if (i === 0) {
-                                $(".carousel-indicators").addClass("active")
-                                $(".carousel-item").addClass("active")
-                            }
-
-                        })
-                    })
-                    //title update
-                    $(".title").html(`<h1>${game.name}</h1>`)
-                    //creates an array of all platforms for the game and updates
+                            `);
+              if (i === 0) {
+                $(".carousel-indicators").addClass("active");
+                $(".carousel-item").addClass("active");
+              }
+            });
+          });
+          //title update
+          $(".title").html(`<h1>${game.name}</h1>`);
+          //creates an array of all platforms for the game and updates
                     $(".release-date").text(game.released)
                     game.platforms.forEach(platform => {
                         //allPlatforms.push(` ${platform.platform.name}`)
@@ -113,21 +121,70 @@ $(document).ready(function () {
                         <div class="side-card-box metacritic">
                             <h3>METASCORE</h3>
                             <span class="metascore">${game.metacritic}</span>
-                        </div>`)
-                    }
-                    $(".card").show();
-                })
-            })
-        })
+                        </div>`);
+          }
+          $(".card").show();
+        });
+      });
     });
-    const init = ()=>{
-        $(".carousel-indicators").empty();
-        $(".carousel-inner").empty();
-        $(".title").empty();
-        $(".description").empty();
-        $(".platforms").empty();
-        $(".stores").empty();
-        $(".metacritic").remove();
-    }
-})
+  });
+  const init = () => {
+    $(".carousel-indicators").empty();
+    $(".carousel-inner").empty();
+    $(".title").empty();
+    $(".description").empty();
+    $(".platforms").empty();
+    $(".stores").empty();
+    $(".metacritic").remove();
+  };
 
+  $("#save").on("click", async (event) => {
+    event.preventDefault();
+    console.log(randomizedGame);
+    const userData = await $.get("/api/user_data");
+    console.log("userData", userData.id);
+
+    console.log("game", randomizedGame[0].name);
+    saveGame(
+      userData.id,
+      randomizedGame[0].name,
+      randomizedGame[0].id,
+      randomizedGame[0].slug,
+      randomizedGame[0].metacritic,
+      randomizedGame[0].released,
+      randomizedGame[0].background_image,
+      randomizedGame[0].website,
+      randomizedGame[0].description
+    );
+  });
+
+  //Annoying and dumb validation "cannot be null" error even though THEYRE NOT NULL
+  //must fix or else go crazy
+  function saveGame(
+    UserId,
+    name,
+    gameId,
+    slug,
+    metacritic,
+    released,
+    background_image,
+    website,
+    description
+  ) {
+    try {
+      $.post("/api/saveGame", {
+        UserId,
+        name,
+        gameId,
+        slug,
+        metacritic,
+        released,
+        background_image,
+        website,
+        description,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+});

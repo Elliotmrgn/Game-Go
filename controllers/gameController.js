@@ -7,13 +7,18 @@ const db = require('../models');
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/saved-games", (req, res) => {
-    db.Game.findAll()
-      .then(data => {
-      console.log('These are the games!!!!!', data)
-      res.render("savedGames", {
-        data,
+  db.Game.findAll()
+    .then(data => {
+      console.log(data);
+      const hbsObject = {
+        games: data,
         style: 'savedGames.css'
-      });
+      }
+      
+      console.log('hbsObject!!!!!!!!!!: ', hbsObject)
+      
+
+      res.render("savedGames", hbsObject);
     });
   });
 
