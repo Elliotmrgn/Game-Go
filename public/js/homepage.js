@@ -149,7 +149,8 @@ $(document).ready(function() {
       randomizedGame[0].metacritic,
       randomizedGame[0].released,
       randomizedGame[0].background_image,
-      randomizedGame[0].website
+      randomizedGame[0].website,
+      randomizedGame[0].description
     );
   });
 
