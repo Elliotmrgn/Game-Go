@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
     metacritic: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     released: {
