@@ -59,6 +59,7 @@ $(document).ready(function() {
         }).then((game) => {
           randomizedGame.pop();
           randomizedGame.push(game);
+          console.log("randomizedGame", randomizedGame);
 
           console.log("****GAME*****", game);
           console.log("game", game.slug);
@@ -135,11 +136,11 @@ $(document).ready(function() {
 
   $("#save").on("click", async (event) => {
     event.preventDefault();
+    console.log(randomizedGame);
     const userData = await $.get("/api/user_data");
     console.log("userData", userData.id);
 
-    const game = randomizedGame[0].name;
-    console.log("game", game);
+    console.log("game", JSON.stringify(randomizedGame[0].name));
     saveGame(
       userData.id,
       randomizedGame[0].name,
@@ -150,34 +151,33 @@ $(document).ready(function() {
       randomizedGame[0].background_image,
       randomizedGame[0].website
     );
-
-    //Annoying and dumb validation "cannot be null" error even though THEYRE NOT NULL
-    //must fix or else go crazy
-    async function saveGame(
-      UserId,
-      name,
-      gameId,
-      slug,
-      metacritic,
-      released,
-      background_image,
-      website
-    ) {
-      try {
-        const saveGameData = await $.post("/api/saveGame", {
-          name,
-          gameId,
-          slug,
-          metacritic,
-          released,
-          background_image,
-          website,
-          UserId,
-        });
-        console.log(saveGameData);
-      } catch (err) {
-        console.log(err);
-      }
-    }
   });
+
+  //Annoying and dumb validation "cannot be null" error even though THEYRE NOT NULL
+  //must fix or else go crazy
+  function saveGame(
+    UserId,
+    name,
+    gameId,
+    slug,
+    metacritic,
+    released,
+    background_image,
+    website
+  ) {
+    try {
+      $.post("/api/saveGame", {
+        UserId,
+        name,
+        gameId,
+        slug,
+        metacritic,
+        released,
+        background_image,
+        website,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 });
