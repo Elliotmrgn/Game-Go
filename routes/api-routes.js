@@ -54,27 +54,27 @@ module.exports = (app) => {
   //Saving game to database
   app.post("/api/saveGame", async (req, res) => {
     const {
-      name,
-      id,
       UserId,
+      name,
+      gameId,
       slug,
-      description,
       metacritic,
       released,
       background_image,
       website,
-    } = req.params;
+      description,
+    } = req.body;
     try {
       const addGame = await db.Game.create({
+        UserId,
         name,
-        gameId: id,
+        gameId,
         slug,
-        description,
         metacritic,
         released,
         background_image,
         website,
-        UserId,
+        description,
       });
       res.json(addGame);
     } catch (err) {
