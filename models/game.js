@@ -6,9 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     slug: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
       type: DataTypes.TEXT,
+      allowNull: true,
     },
     metacritic: {
       type: DataTypes.INTEGER,
@@ -16,12 +18,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     released: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     background_image: {
       type: DataTypes.TEXT,
+      allowNull: true,
     },
     website: {
       type: DataTypes.STRING,
+      allowNull: true,
     },
     gameId: {
       type: DataTypes.BIGINT,
