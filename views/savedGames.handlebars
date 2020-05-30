@@ -1,18 +1,26 @@
 <h1 class="heading">Saved Games</h1>
 
-<div class="flip">
-    <div class="front" style="background-image: url({{background_image}})">
-       <h1 class="text-shadow">{{name}}</h1>
-    </div>
-    <div class="back">
-       <h2>{{name}}</h2>
-       <h7>Released: {{released}}</h7>
-       <br>
-       <h7>Metacritic: {{metacritic}}</h7>
-       <p class="descr">{{description}}</p>
-       <button type="button" class="btn btn-secondary">Full Game Details</button>
-    </div>
-</div>
+{{#each games}}
+   <div class="flip">
+      <div class="front" style="background-image: url({{dataValues.background_image}})">
+         <h1 class="text-shadow">{{dataValues.name}}</h1>
+      </div>
+      <div class="back">
+         <h2>{{dataValues.name}}</h2>
+         <h7>Released: {{dataValues.released}}</h7>
+         <br>
+         <h7>Metacritic: {{dataValues.metacritic}}</h7>
+         <p class="descr">{{dataValues.description}}</p>
+         <button type="button" class="btn btn-secondary">Full Game Details</button>
+      </div>
+   </div>
+{{/each}}
+
+
+
+
+
+
 
 {{!-- EXAMPLE CARD --}}
 {{!-- <div class="flip">
