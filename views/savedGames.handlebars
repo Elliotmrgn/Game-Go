@@ -9,9 +9,11 @@
          <h2>{{dataValues.name}}</h2>
          <h7>Released: {{dataValues.released}}</h7>
          <br>
-         <h7>Metacritic: {{dataValues.metacritic}}</h7>
+         {{#if metacritic}}
+            <h7>Metacritic: {{dataValues.metacritic}}</h7>
+         {{/if}}
          <p class="descr">{{dataValues.description}}</p>
-         <button type="button" class="btn btn-secondary">Full Game Details</button>
+         <button type="button" class="btn btn-secondary" value="{{dataValues.gameId}}">Full Game Details</button>
       </div>
    </div>
 {{/each}}
