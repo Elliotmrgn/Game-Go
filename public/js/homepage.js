@@ -140,7 +140,7 @@ $(document).ready(function() {
     const userData = await $.get("/api/user_data");
     console.log("userData", userData.id);
 
-    console.log("game", JSON.stringify(randomizedGame[0].name));
+    console.log("game", randomizedGame[0].name);
     saveGame(
       userData.id,
       randomizedGame[0].name,
@@ -163,7 +163,8 @@ $(document).ready(function() {
     metacritic,
     released,
     background_image,
-    website
+    website,
+    description
   ) {
     try {
       $.post("/api/saveGame", {
@@ -175,6 +176,7 @@ $(document).ready(function() {
         released,
         background_image,
         website,
+        description,
       });
     } catch (err) {
       console.log(err);

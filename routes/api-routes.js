@@ -62,6 +62,7 @@ module.exports = (app) => {
       released,
       background_image,
       website,
+      description,
     } = req.body;
     try {
       const addGame = await db.Game.create({
@@ -73,6 +74,7 @@ module.exports = (app) => {
         released,
         background_image,
         website,
+        description,
       });
       res.json(addGame);
     } catch (err) {
