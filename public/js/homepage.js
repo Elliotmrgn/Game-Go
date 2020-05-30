@@ -94,26 +94,30 @@ $(document).ready(function() {
           //title update
           $(".title").html(`<h1>${game.name}</h1>`);
           //creates an array of all platforms for the game and updates
-
-          game.platforms.forEach((platform) => {
-            //allPlatforms.push(` ${platform.platform.name}`)
-            $(".platforms").append(`<li>${platform.platform.name}</li>`);
-          });
-          game.stores.forEach((store) => {
-            //allPlatforms.push(` ${platform.platform.name}`)
-            $(".stores").append(
-              `<li><a target="_blank" href="${store.url}">${store.store.name}</a></li>`
-            );
-          });
-          let description;
-          if (game.description) {
-            description = game.description;
-          } else {
-            description = game.description_raw;
-          }
-          $(".description").html(game.description);
-          if (game.metacritic) {
-            $(".side-card").append(`
+                    $(".release-date").text(game.released)
+                    game.platforms.forEach(platform => {
+                        //allPlatforms.push(` ${platform.platform.name}`)
+                        $(".platforms").append(`<li>${platform.platform.name}</li>`)
+                    });
+                    game.stores.forEach(store => {
+                        //allPlatforms.push(` ${platform.platform.name}`)
+                        $(".stores").append(`<li><a target="_blank" href="${store.url}">${store.store.name}</a></li>`)
+                    });
+                    game.developers.forEach(dev => {
+                        $(".developers").append(`<li>${dev.name}</li>`)
+                    })
+                    game.genres.forEach(genre => {
+                        $(".genres").append(`<li>${genre.name}</li>`)
+                    })
+                    game.tags.forEach(tag => {
+                        $(".tags").append(`<li>${tag.name}</li>`)
+                    })
+                    let description
+                    if (game.description){description = game.description}
+                    else{description = game.description_raw}
+                    $(".description").html(description)
+                    if (game.metacritic) {
+                        $(".side-card").append(`
                         <div class="side-card-box metacritic">
                             <h3>METASCORE</h3>
                             <span class="metascore">${game.metacritic}</span>
