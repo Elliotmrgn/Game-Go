@@ -5,6 +5,11 @@ form.signup, form.login {
 body {
   background-color: rgb(32, 31, 31);
   color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  height: 100%;
 }
 
 .container{
@@ -176,10 +181,6 @@ img#logo {
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .column {
   float: left;
   width: 50%;
@@ -298,4 +299,17 @@ table caption {
 
 .description {
   text-align: left;
+}
+
+.jumbotron {
+  background-color: rgba(23, 23, 24, 0.644);
+  text-align: center;
+}
+
+body {
+  background-image: url("https://media.rawg.io/media/games/7e3/7e327a055bedb9b6d1be86593bef473d.jpg");
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
