@@ -1,3 +1,25 @@
+<!--THIS IS THE NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+   <a class="navbar-brand" href="homepage.html"><img src="gamego!.png" alt="logo" width="100" height="20"></a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+               <a class="nav-link" href="homepage.html">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="bookmarks.html">BOOKMARKS</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="login.html">LOGIN</a>
+            </li>
+      </ul>
+   </div>
+</nav>
+
 <h1 class="heading">Saved Games</h1>
 
 {{#each games}}
@@ -9,32 +31,14 @@
          <h2>{{dataValues.name}}</h2>
          <h7>Released: {{dataValues.released}}</h7>
          <br>
-         {{#if metacritic}}
+         {{#if dataValues.metacritic}}
             <h7>Metacritic: {{dataValues.metacritic}}</h7>
          {{/if}}
          <p class="descr">{{dataValues.description}}</p>
-         <button type="button" class="btn btn-secondary" value="{{dataValues.gameId}}">Full Game Details</button>
+         <button type="button" class="fullDetails btn btn-secondary" value="{{dataValues.gameId}}">Full Game Details</button>
       </div>
    </div>
 {{/each}}
 
 
-
-
-
-
-
-{{!-- EXAMPLE CARD --}}
-{{!-- <div class="flip">
-    <div class="front" style="background-image: url(https://media.rawg.io/media/games/b11/b115b2bc6a5957a917bc7601f4abdda2.jpg)">
-       <h1 class="text-shadow">Grand Theft Auto V</h1>
-    </div>
-    <div class="back">
-       <h2>Grand Theft Auto V</h2>
-       <h7>Released: 03-10-2020</h7>
-       <br>
-       <h7>Metacritic: 97</h7>
-       <p class="descr">Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas. 561 different vehicles (including every transport you can operate) and the amount is rising with every update. \r\nSimultaneous storytelling from three unique perspectives: \r\nFollow Michael, ex-criminal living his life of leisure away from the past, Franklin, a kid that seeks the better future, and Trevor, the exact past Michael is trying to run away from. \r\nGTA Online will provide a lot of additional challenge even for the experienced players, coming fresh from the story mode. Now you will have other players around that can help you just as likely as ruin your mission. Every GTA mechanic up to date can be experienced by players through the unique customizable character, and community content paired with the leveling system tends to keep everyone busy and engaged.</p>
-       <button type="button" class="btn btn-secondary">Full Game Details</button>
-    </div>
-</div> --}}
+<script type="text/javascript" src="js/savedGames.js"></script>
