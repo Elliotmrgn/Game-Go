@@ -8,9 +8,9 @@ module.exports = (app) => {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("../public/homepage.html");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.sendFile(path.join(__dirname, "../public/landingPage.html"));
   });
 
   app.get("/login", (req, res) => {
@@ -29,5 +29,9 @@ module.exports = (app) => {
 
   app.get("/homepage", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/homepage.html"));
+  });
+
+  app.get("/saved-games", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/savedGames.handlebars"));
   });
 };
