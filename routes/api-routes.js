@@ -47,10 +47,24 @@ module.exports = (app) => {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        email: req.user.firstName,
+        firstName: req.user.firstName,
         lastName: req.user.lastName,
         about: req.user.about,
       });
+    }
+  });
+
+  app.post("/api/user_data", async (req, res) => {
+    const { email, id, firstName, lastName, about, UserId } = req.body;
+    try {
+      const updateUser = await db.User.update(req.body, {
+        where: {
+          UserId,
+        },
+      });
+      res.json(updateUser);
+    } catch (err) {
+      console.log(err);
     }
   });
 
