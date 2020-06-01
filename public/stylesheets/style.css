@@ -306,7 +306,7 @@ table caption {
   text-align: center;
 }
 
-body {
+.landingBody {
   background-image: url("https://media.rawg.io/media/games/7e3/7e327a055bedb9b6d1be86593bef473d.jpg");
   height: 100%; 
   background-position: center;
