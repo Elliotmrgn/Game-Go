@@ -47,6 +47,9 @@ module.exports = (app) => {
       res.json({
         email: req.user.email,
         id: req.user.id,
+        email: req.user.firstName,
+        lastName: req.user.lastName,
+        about: req.user.about,
       });
     }
   });
@@ -92,7 +95,7 @@ module.exports = (app) => {
     }
   });
 
-  //Getting saved game from the userid
+  //Getting saved game from the useriddescription_raw
   app.get("/api/games/:UserId", async (req, res) => {
     try {
       const singleGame = await db.Game.findAll({
