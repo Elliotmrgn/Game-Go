@@ -96,6 +96,7 @@
               placeholder="First Name"
               aria-label="Recipient's username"
               aria-describedby="button-addon2"
+              id="firstName"
             />
             <div class="input-group-append">
               <button
@@ -118,6 +119,7 @@
               placeholder="Last Name"
               aria-label="Recipient's username"
               aria-describedby="button-addon2"
+              id="lastName"
             />
             <div class="input-group-append">
               <button
@@ -138,6 +140,7 @@
               placeholder="Email"
               aria-label="Recipient's username"
               aria-describedby="button-addon2"
+              id="email"
             />
             <div class="input-group-append">
               <button
@@ -161,18 +164,21 @@
                   aria-label="First name"
                   class="form-control"
                   placeholder="Old Password"
+                  id="oldPassword"
                 />
                 <input
                   type="text"
                   aria-label="Last name"
                   class="form-control"
                   placeholder="New Password"
+                  id="newPassword"
                 />
                 <input
                   type="text"
                   aria-label="First name"
                   class="form-control"
                   placeholder="Confirm New Password"
+                  id="confirmNewPassword"
                 />
 
                 <button
@@ -211,11 +217,7 @@
           <br />
           <h4>About</h4>
           <div class="form-group">
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-            ></textarea>
+            <textarea class="form-control" id="about" rows="3"></textarea>
             <br /><button
               class="btn btn-outline-secondary"
               type="button"
