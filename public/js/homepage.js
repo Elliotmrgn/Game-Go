@@ -159,7 +159,7 @@ $(document).ready(function() {
       randomizedGame[0].released,
       randomizedGame[0].background_image,
       randomizedGame[0].website,
-      randomizedGame[0].description
+      randomizedGame[0].description_raw
     );
   });
 
@@ -174,7 +174,7 @@ $(document).ready(function() {
     released,
     background_image,
     website,
-    description
+    description_raw
   ) {
     try {
       $.post("/api/saveGame", {
@@ -186,7 +186,7 @@ $(document).ready(function() {
         released,
         background_image,
         website,
-        description,
+        description_raw,
       });
     } catch (err) {
       console.log(err);
