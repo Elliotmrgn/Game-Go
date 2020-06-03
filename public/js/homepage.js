@@ -1,5 +1,6 @@
 $(document).ready(function() {
   const randomizedGame = [];
+  const testOBJ = {}
   $("#search").on("click", (event) => {
     event.preventDefault();
     $(".card").hide();
@@ -59,10 +60,10 @@ $(document).ready(function() {
         }).then((game) => {
           randomizedGame.pop();
           randomizedGame.push(game);
-          console.log("randomizedGame", randomizedGame);
+          testOBJ.randomGame = game;
 
           console.log("****GAME*****", game);
-          console.log("game", game.slug);
+
           $.ajax({
             url: `https://api.rawg.io/api/games/${game.slug}/screenshots`,
             contentType: "application/json; charset=utf-8",
@@ -70,6 +71,11 @@ $(document).ready(function() {
             type: "GET",
           }).then((screenshots) => {
             console.log("screenshots***********", screenshots);
+
+            testOBJ.screenshots = screenshots;
+            console.log("testOBJ-------------------X", testOBJ)
+
+            //HB---
             screenshots.results.forEach((screenshot, i) => {
               $(".carousel-indicators").append(
                 `<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`
@@ -90,7 +96,12 @@ $(document).ready(function() {
                 $(".carousel-item").addClass("active");
               }
             });
+            //----
+
           });
+
+          //HB-----
+
           //title update
           $(".title").html(`<h1>${game.name}</h1>`);
           //creates an array of all platforms for the game and updates
@@ -129,6 +140,9 @@ $(document).ready(function() {
                         </div>`);
           }
           $(".card").show();
+          //----------
+
+
         });
       });
     });
@@ -140,6 +154,8 @@ $(document).ready(function() {
     $(".description").empty();
     $(".platforms").empty();
     $(".stores").empty();
+    $(".genres").empty();
+    $(".tags").empty();
     $(".metacritic").remove();
   };
 
