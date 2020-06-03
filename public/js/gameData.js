@@ -70,6 +70,7 @@ const getGameData = async id => {
             Game.developers.push(dev.name);
         })
         Game.screenshots = [];
+        localStorage.setItem('gameID', game.id);
         await $.ajax({
             url: `https://api.rawg.io/api/games/${game.slug}/screenshots`,
             contentType: "application/json; charset=utf-8",
@@ -101,6 +102,7 @@ const init = () => {
 
 const generateHTML = (Game) => {
     //builds screen shot carousel
+    
     Game.screenshots.forEach((screenshot, i) => {
       $(".carousel-indicators").append(
         `<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`

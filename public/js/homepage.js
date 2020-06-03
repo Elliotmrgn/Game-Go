@@ -17,21 +17,28 @@ $(document).ready(function () {
     let searchQuery = `platforms=${platform}&genres=${genre}&tags=${tags}`;
     return `https://api.rawg.io/api/games?${searchQuery}`
   }
- 
-  init();
+  window.onload = async () => {
+    init();
+    let lastID = localStorage.getItem("gameID");
+    if (lastID){
+      $("#cardCol").append(`<div class="loader"></div>`);
+      Game = await getGameData(lastID)
+      generateHTML(Game);
+
+    }
+  }
 
   $("#search").on("click", async (event) => {
     event.preventDefault();
     console.log(Game)
     init();
     $("#cardCol").append(`<div class="loader"></div>`);
-    
     let queryUrl = userInput();
     console.log("queryUrl", queryUrl)
     const gameID = await generateRandomGameID(queryUrl);
     console.log("gameID", gameID)
     Game = await getGameData(gameID);
-    console.log("*******",Game)
+    console.log("*******", Game)
     generateHTML(Game);
   });
 
