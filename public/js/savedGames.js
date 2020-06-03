@@ -19,7 +19,7 @@ $(document).ready(function() {
     $(".fullDetails").on("click", (event) => {
         event.preventDefault();
         console.log("click");
-
+        
         getSavedGameDetails();
 
     });
