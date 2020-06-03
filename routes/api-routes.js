@@ -47,7 +47,24 @@ module.exports = (app) => {
       res.json({
         email: req.user.email,
         id: req.user.id,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        about: req.user.about,
       });
+    }
+  });
+
+  app.post("/api/user_data", async (req, res) => {
+    const { email, id, firstName, lastName, about, UserId } = req.body;
+    try {
+      const updateUser = await db.User.update(req.body, {
+        where: {
+          UserId,
+        },
+      });
+      res.json(updateUser);
+    } catch (err) {
+      console.log(err);
     }
   });
 
@@ -62,7 +79,7 @@ module.exports = (app) => {
       released,
       background_image,
       website,
-      description,
+      description_raw,
     } = req.body;
     try {
       const addGame = await db.Game.create({
@@ -74,7 +91,7 @@ module.exports = (app) => {
         released,
         background_image,
         website,
-        description,
+        description_raw,
       });
       res.json(addGame);
     } catch (err) {
@@ -92,7 +109,7 @@ module.exports = (app) => {
     }
   });
 
-  //Getting saved game from the userid
+  //Getting saved game from the useriddescription_raw
   app.get("/api/games/:UserId", async (req, res) => {
     try {
       const singleGame = await db.Game.findAll({

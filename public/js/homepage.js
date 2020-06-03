@@ -5,6 +5,8 @@ $(document).ready(function() {
     $(".card").hide();
     //TODO CREATE INIT TO CLEAR ALL DATA
     init();
+    //Sets save button to be hidden before a game is found.
+    $("#save").attr("hidden", "hidden");
     //gets platform value
     let platform = $("input[name='platform']:checked").val();
     //gets genre value
@@ -43,6 +45,7 @@ $(document).ready(function() {
       if (gameSlot === -1) {
         gameSlot = 19;
       }
+
       //new ajax call for that page
       queryUrl += `&page=${gamePage}`;
       console.log("queryUrl", queryUrl);
@@ -91,6 +94,10 @@ $(document).ready(function() {
               }
             });
           });
+          //added following line that enables the save button when a game is found.
+          $("#save").removeAttr("hidden");
+          //added following line that shows returned game data when a game is found.
+          $("#gameData").removeAttr("hidden");
           //title update
           $(".title").html(`<h1>${game.name}</h1>`);
           //creates an array of all platforms for the game and updates
@@ -159,12 +166,10 @@ $(document).ready(function() {
       randomizedGame[0].released,
       randomizedGame[0].background_image,
       randomizedGame[0].website,
-      randomizedGame[0].description
+      randomizedGame[0].description_raw
     );
   });
 
-  //Annoying and dumb validation "cannot be null" error even though THEYRE NOT NULL
-  //must fix or else go crazy
   function saveGame(
     UserId,
     name,
@@ -174,7 +179,7 @@ $(document).ready(function() {
     released,
     background_image,
     website,
-    description
+    description_raw
   ) {
     try {
       $.post("/api/saveGame", {
@@ -186,7 +191,7 @@ $(document).ready(function() {
         released,
         background_image,
         website,
-        description,
+        description_raw,
       });
     } catch (err) {
       console.log(err);
