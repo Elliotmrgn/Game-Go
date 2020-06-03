@@ -163,8 +163,6 @@ $(document).ready(function() {
     );
   });
 
-  //Annoying and dumb validation "cannot be null" error even though THEYRE NOT NULL
-  //must fix or else go crazy
   function saveGame(
     UserId,
     name,
