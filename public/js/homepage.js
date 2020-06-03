@@ -5,8 +5,8 @@ $(document).ready(function() {
     $(".card").hide();
     //TODO CREATE INIT TO CLEAR ALL DATA
     init();
-    //Sets save button to be disabled before a game is found.
-    $("#save").attr("disabled", "disabled");
+    //Sets save button to be hidden before a game is found.
+    $("#save").attr("hidden", "hidden");
     //gets platform value
     let platform = $("input[name='platform']:checked").val();
     //gets genre value
@@ -95,7 +95,9 @@ $(document).ready(function() {
             });
           });
           //added following line that enables the save button when a game is found.
-          $("#save").removeAttr("disabled");
+          $("#save").removeAttr("hidden");
+          //added following line that shows returned game data when a game is found.
+          $("#gameData").removeAttr("hidden");
           //title update
           $(".title").html(`<h1>${game.name}</h1>`);
           //creates an array of all platforms for the game and updates
