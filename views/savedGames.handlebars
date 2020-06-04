@@ -7,9 +7,9 @@
    </button>
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-               <a class="nav-link" href="homepage.html">HOME</a>
-            </li>
+         <li class="nav-item">
+            <a class="nav-link" href="homepage.html">HOME</a>
+         </li>
       </ul>
    </div>
 </nav>
@@ -19,25 +19,27 @@
 <div class="container-fluid">
    <div class="row">
       {{#each games}}
-         <div class="col-lg-4 col-md-6 col-sm-12 flip">
-            <div class="front" style="background-image: url({{dataValues.background_image}})">
-               <h1 class="text-shadow">{{dataValues.name}}</h1>
-            </div>
-            <div class="back">
-               <h2>{{dataValues.name}}</h2>
-               <h7>Released: {{dataValues.released}}</h7>
-               <br>
-               {{#if dataValues.metacritic}}
-                  <h7>Metacritic: {{dataValues.metacritic}}</h7>
-               {{/if}}
-               <p class="descr">{{dataValues.description_raw}}</p>
-               <button type="button" class="fullDetails btn btn-secondary" value="{{dataValues.gameId}}">Full Game Details</button>
-               <button type="button" class="deleteGame btn btn-secondary" value="{{dataValues.id}}"><i class="fa fa-trash"></i></button>
-            </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 flip" id="savedGameCard">
+         <div class="front" style="background-image: url({{dataValues.background_image}})">
+            <h1 class="text-shadow">{{dataValues.name}}</h1>
          </div>
+         <div class="back">
+            <h2>{{dataValues.name}}</h2>
+            <h7>Released: {{dataValues.released}}</h7>
+            <br>
+            {{#if dataValues.metacritic}}
+            <h7>Metacritic: {{dataValues.metacritic}}</h7>
+            {{/if}}
+            <p class="descr">{{dataValues.description_raw}}</p>
+            <button type="button" class="fullDetails btn btn-secondary" value="{{dataValues.gameId}}">Full Game
+               Details</button>
+            <button type="button" class="deleteGame btn btn-secondary" value="{{dataValues.id}}"><i
+                  class="fa fa-trash"></i></button>
+         </div>
+      </div>
       {{/each}}
    </div>
 </div>
 
-
+<script type="text/javascript" src="js/gameData.js"></script>
 <script type="text/javascript" src="js/savedGames.js"></script>
