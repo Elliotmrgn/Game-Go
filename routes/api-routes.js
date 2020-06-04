@@ -124,11 +124,13 @@ module.exports = (app) => {
   });
 
   //Deleting saved games
-  app.get("/api/games/:id", async (req, res) => {
+  app.delete("/api/games/:UserId/:gameId", async (req, res) => {
     try {
+      const { UserId, gameId } = req.params;
       const deleteGame = await db.Game.destroy({
         where: {
-          UserId: req.params.id,
+          UserId,
+          gameId,
         },
       });
       res.json(deleteGame);
@@ -136,6 +138,8 @@ module.exports = (app) => {
       console.log("err", err);
     }
   });
+
+  app.delete("/api");
 
   //Finding game tag preferences for specific user
   app.get("/api/tags/:UserId", async (req, res) => {

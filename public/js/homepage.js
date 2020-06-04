@@ -1,5 +1,4 @@
-
-$(document).ready(function () {
+$(document).ready(function() {
   let Game = {};
   const userInput = () => {
     //gets platform value
@@ -8,42 +7,38 @@ $(document).ready(function () {
     let genre = $("input[name='genre']:checked").val();
     //gets all tag values
     let tags = $("input[name='tags']:checked")
-      .map(function () {
+      .map(function() {
         return $(this).val();
       })
       .get();
     //combines for search query
     //TODO ADD CASE FOR UNSELECTED PROMPTS
     let searchQuery = `platforms=${platform}&genres=${genre}&tags=${tags}`;
-    return `https://api.rawg.io/api/games?${searchQuery}`
-  }
+    return `https://api.rawg.io/api/games?${searchQuery}`;
+  };
   window.onload = async () => {
     init();
     let lastID = localStorage.getItem("gameID");
-    if (lastID){
+    if (lastID) {
       $("#cardCol").append(`<div class="loader"></div>`);
-      Game = await getGameData(lastID)
+      Game = await getGameData(lastID);
       generateHTML(Game);
-
     }
-  }
+  };
 
   $("#search").on("click", async (event) => {
     event.preventDefault();
-    console.log(Game)
+    console.log(Game);
     init();
     $("#cardCol").append(`<div class="loader"></div>`);
     let queryUrl = userInput();
-    console.log("queryUrl", queryUrl)
+    console.log("queryUrl", queryUrl);
     const gameID = await generateRandomGameID(queryUrl);
-    console.log("gameID", gameID)
+    console.log("gameID", gameID);
     Game = await getGameData(gameID);
-    console.log("*******", Game)
+    console.log("*******", Game);
     generateHTML(Game);
   });
-
-
-
 
   $("#save").on("click", async (event) => {
     event.preventDefault();
@@ -91,4 +86,3 @@ $(document).ready(function () {
     }
   }
 });
-
