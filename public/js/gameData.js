@@ -92,6 +92,7 @@ const init = () => {
     $(".carousel-indicators").empty();
     $(".carousel-inner").empty();
     $(".title").empty();
+    $(".developers").empty();
     $(".description").empty();
     $(".platforms").empty();
     $(".stores").empty();

@@ -1,22 +1,50 @@
-form.signup,
-form.login {
+form.signup, form.login {
   margin-top: 50px;
 }
 
 body {
-  background-color: rgb(32, 31, 31);
+  /* background-color: rgb(32, 31, 31); */
   color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html,
-body {
-  height: 100%;
-}
+html, body {
+  /* height: 100%; */
+  /* background-color: #001c0b; */
+  background-image: url("https://www.transparenttextures.com/patterns/gravel.png");
+  animation: colorchange 175s linear 1s infinite; /* animation-name followed by duration in seconds*/
+         /* you could also use milliseconds (ms) or something like 2.5s */
+      -webkit-animation: colorchange 175s linear 0s infinite alternate; /* Chrome and Safari */
+    }
+
+    @keyframes colorchange
+    { 
+      0%   {background-color: red; color: cyan;}
+      33%  {background-color: green; color: magenta;}
+      66%  {background-color: blue; color: yellow;}
+      100% {background-color: red; color: cyan;}
+   }
+
+    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+      0%   {background-color: red; color: cyan;}
+      33%  {background-color: green; color: magenta;}
+      66%  {background-color: blue; color: yellow;}
+      100% {background-color: red; color: cyan;}
+   }
+
+
+
+
+
+
+
+
 
 .container {
   max-width: 1280px;
 }
+
 .navbar {
   background-color: transparent;
   background: transparent;
@@ -56,9 +84,7 @@ img#logo {
 }
 
 @media screen and (max-width: 800px) {
-  .left,
-  .main,
-  .right {
+  .left, .main, .right {
     width: 100%;
   }
 }
@@ -265,17 +291,17 @@ table caption {
   top: -20px;
 }
 
-#checkBtns input:hover + span {
+#checkBtns input:hover+span {
   background-color: #efe0e0;
   width: 100%;
 }
 
-#checkBtns input:checked:hover + span {
+#checkBtns input:checked:hover+span {
   background-color: #c11;
   color: #fff;
 }
 
-#checkBtns input:checked ~ .customBackground:after {
+#checkBtns input:checked~.customBackground:after {
   display: block;
 }
 
@@ -320,8 +346,10 @@ table caption {
 
 .loader {
   margin: 25px auto;
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
   border-radius: 50%;
   width: 120px;
   height: 120px;
