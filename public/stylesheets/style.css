@@ -1,13 +1,20 @@
-form.signup, form.login {
+form.signup,
+form.login {
   margin-top: 50px;
 }
 
 body {
   background-color: rgb(32, 31, 31);
   color: rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.container{
+html,
+body {
+  height: 100%;
+}
+
+.container {
   max-width: 1280px;
 }
 .navbar {
@@ -17,7 +24,7 @@ body {
 }
 
 .navbar li {
-  color: #000
+  color: #000;
 }
 
 h2 {
@@ -49,19 +56,21 @@ img#logo {
 }
 
 @media screen and (max-width: 800px) {
-  .left, .main, .right {
+  .left,
+  .main,
+  .right {
     width: 100%;
   }
 }
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   list-style: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .wrapper {
@@ -176,10 +185,6 @@ img#logo {
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .column {
   float: left;
   width: 50%;
@@ -260,17 +265,17 @@ table caption {
   top: -20px;
 }
 
-#checkBtns input:hover+span {
-  background-color: #efE0E0;
+#checkBtns input:hover + span {
+  background-color: #efe0e0;
   width: 100%;
 }
 
-#checkBtns input:checked:hover+span {
+#checkBtns input:checked:hover + span {
   background-color: #c11;
   color: #fff;
 }
 
-#checkBtns input:checked~.customBackground:after {
+#checkBtns input:checked ~ .customBackground:after {
   display: block;
 }
 
@@ -298,4 +303,33 @@ table caption {
 
 .description {
   text-align: left;
+}
+
+.jumbotron {
+  background-color: rgba(23, 23, 24, 0.644);
+  text-align: center;
+}
+
+.landingBody {
+  background-image: url("https://media.rawg.io/media/games/7e3/7e327a055bedb9b6d1be86593bef473d.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.loader {
+  margin: 25px auto;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

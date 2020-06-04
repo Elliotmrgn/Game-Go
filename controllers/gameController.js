@@ -22,4 +22,8 @@ router.get("/saved-games", (req, res) => {
     });
   });
 
+  router.get("/random", (req, res)=>{
+    
+  })
+
 module.exports = router;

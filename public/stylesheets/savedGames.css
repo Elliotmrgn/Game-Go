@@ -23,6 +23,7 @@ h1 {
 .flip {
   position: relative;
 }
+
 .flip > .front,
 .flip > .back {
   display: block;
@@ -53,10 +54,10 @@ h1 {
 .flip {
   position: relative;
   display: inline-block;
-  margin-right: 2px;
   margin-bottom: 1em;
-  width: 400px;
+  /* width: 400px; */
 }
+
 .flip > .front,
 .flip > .back {
   display: block;
@@ -83,6 +84,6 @@ h1 {
 .descr {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
