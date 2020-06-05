@@ -10,8 +10,7 @@ body {
 
 html, body {
   /* height: 100%; */
-  /* background-color: #001c0b; */
-  background-image: url("https://www.transparenttextures.com/patterns/gravel.png");
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
   animation: colorchange 175s linear 1s infinite; /* animation-name followed by duration in seconds*/
          /* you could also use milliseconds (ms) or something like 2.5s */
       -webkit-animation: colorchange 175s linear 0s infinite alternate; /* Chrome and Safari */
@@ -19,18 +18,18 @@ html, body {
 
     @keyframes colorchange
     { 
-      0%   {background-color: red; color: cyan;}
-      33%  {background-color: green; color: magenta;}
-      66%  {background-color: blue; color: yellow;}
-      100% {background-color: red; color: cyan;}
+      0%  {background-color: rgb(0, 20, 20);}
+      33%  {background-color: rgb(20, 0, 20);}  
+      66%   {background-color: rgb(20, 20, 0);} 
+      100% {background-color: rgb(0, 20, 20);}
    }
 
     @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
     {
-      0%   {background-color: red; color: cyan;}
-      33%  {background-color: green; color: magenta;}
-      66%  {background-color: blue; color: yellow;}
-      100% {background-color: red; color: cyan;}
+      0%  {background-color: rgb(0, 20, 20);}
+      33%  {background-color: rgb(20, 0, 20);}  
+      66%   {background-color: rgb(20, 20, 0);} 
+      100% {background-color: rgb(0, 20, 20);}
    }
 
 
@@ -332,17 +331,17 @@ table caption {
 }
 
 .jumbotron {
-  background-color: rgba(23, 23, 24, 0.644);
+  background-color: rgba(23, 23, 24);
   text-align: center;
 }
 
-.landingBody {
+/* .landingBody {
   background-image: url("https://media.rawg.io/media/games/7e3/7e327a055bedb9b6d1be86593bef473d.jpg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 .loader {
   margin: 25px auto;
