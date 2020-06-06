@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $("#failedSearch").hide();
+  $("#saveSuccess").hide();
   let Game = {};
   const userInput = () => {
     //gets platform value
@@ -63,6 +64,14 @@ $(document).ready(function() {
       Game.website,
       Game.description_raw
     );
+    $("#saveSuccess").show();
+    window.setTimeout(function() {
+      $("#saveSuccess")
+        .fadeTo(500, 0)
+        .slideUp(500, function() {
+          $(this).remove();
+        });
+    }, 2000);
   });
 
   function saveGame(
