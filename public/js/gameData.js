@@ -151,7 +151,16 @@ const generateHTML = (Game) => {
     } else {
       description = Game.description_raw;
     }
-    $(".description").html(description);
+    if (description.length > 1000){
+      const description_split = description.substring(0, 999)
+      $(".description").html(`${description_split} <span id="ellipse"> . . . </span> <button id="show-more">Show More</button>`)
+    }
+    else{
+      $(".description").html(description);
+    }
+
+
+
     if (Game.metacritic) {
       $(".side-card").append(`
         <div class="side-card-box metacritic">
