@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet" />
   </head>
 
@@ -51,7 +51,7 @@
     <div class="container">
       <div class="row justify-content-center pt-3">
         <button
-          class="col-3 btn btn-primary btn-lg btn-block"
+          class="col-2 btn btn-secondary btn-lg btn-block buttonStyle"
           type="button"
           data-toggle="collapse"
           data-target="#search-params"
@@ -102,7 +102,7 @@
           
           <!-- Game Genres -->
           <div class="row pt-3 justify-content-center">
-            <div class="col-6">
+            <div class="col-6 justify-content-center">
               <h1 class="headers">GENRE</h1>
               <div class="row">
                 <div class="col-3">
@@ -260,9 +260,9 @@
   
             <!-- Tags -->
             <div class="col-6">
-              <h1 class="headers">TAGS</h1>
+              <h1 class="headers">GAME OPTIONS</h1>
               <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input option-input checkbox"
@@ -276,7 +276,7 @@
                     >
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input option-input checkbox"
@@ -290,9 +290,21 @@
                     >
                   </div>
                 </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="pvp"
+                      value="157"
+                    />
+                    <label class="form-check-label" for="pvp">PvP</label>
+                  </div>
+                </div>
               </div>
               <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input option-input checkbox"
@@ -306,7 +318,7 @@
                     >
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                   <div class="form-check form-check-inline">
                     <input
                       class="form-check-input option-input checkbox"
@@ -320,8 +332,32 @@
                     >
                   </div>
                 </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="pve"
+                      value="171"
+                    />
+                    <label class="form-check-label" for="pve">PvE</label>
+                  </div>
+                </div>
               </div>
               <div class="row">
+                <div class="col-4">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="coop"
+                      value="18"
+                    />
+                    <label class="form-check-label" for="coop">Co-Op</label>
+                  </div>
+                </div>
                 <div class="col-6">
                   <div class="form-check form-check-inline">
                     <input
@@ -336,59 +372,25 @@
                     >
                   </div>
                 </div>
-                <div class="col-6">
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input option-input checkbox"
-                      name="tags"
-                      type="checkbox"
-                      id="coop"
-                      value="18"
-                    />
-                    <label class="form-check-label" for="coop">Co-Op</label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input option-input checkbox"
-                      name="tags"
-                      type="checkbox"
-                      id="pve"
-                      value="171"
-                    />
-                    <label class="form-check-label" for="pve">PvE</label>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input option-input checkbox"
-                      name="tags"
-                      type="checkbox"
-                      id="pvp"
-                      value="157"
-                    />
-                    <label class="form-check-label" for="pvp">PvP</label>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
           <div class="row justify-content-center pt-3">
-            <button type="button" class="col-3 mb-3 btn btn-info btn-lg btn-block" id="search"><i class="fa fa-search" aria-hidden="true"></i>
+            <button 
+            type="button" 
+            class="col-2 mb-3 btn btn-info btn-lg btn-block buttonStyle" 
+            id="search">
+            <i class="fa fa-search" aria-hidden="true"></i>
               Search
             </button>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12" id="cardCol">
+        <div class="col-12" id="cardCol">
           <div class="card" id="gameData">
             <div class="col-12">
-              <div class="title">testing</div>
+              <div class="title resultHeaders">Testing</div>
             </div>
             <!--Carousel Wrapper-->
             <div class="row">
@@ -431,7 +433,7 @@
             <!-- TITLE -->
             <div class="row mt-3">
               <div class="col-12">
-                <h3>GAME DESCRIPTION</h3>
+                <h3 class="headers">GAME DESCRIPTION</h3>
               </div>
               <div class="col-12" style="overflow-x:scroll; height:200px">
                 <p class="description">
@@ -486,28 +488,28 @@
             <div class="row mt-3">
               <div 
                 class="col-3 side-card-box">
-                <h3>RELEASE DATE</h3>
+                <h3 class="headers">RELEASE DATE</h3>
                 <p 
                   class="release-date">
                 </p>
               </div>
               <div 
                 class="col-3 side-card-box">
-                <h3>DEVELOPERS</h3>
+                <h3 class="headers">DEVELOPERS</h3>
                 <ul 
                   class="developers">
                 </ul>
               </div>
               <div 
                 class="col-3 side-card-box">
-                <h3>PLATFORMS</h3>
+                <h3 class="headers">PLATFORMS</h3>
                 <ul 
                   class="platforms">
                 </ul>
               </div>
               <div 
                 class="col-3 side-card-box">
-                <h3>STORES</h3>
+                <h3 class="headers">STORES</h3>
                 <ul 
                   class="stores">
                 </ul>
@@ -518,14 +520,14 @@
               class="row mt-3 justify-content-center">
               <div 
                 class="col-5 m-2 side-card-box">
-                <h3>GENRES</h3>
+                <h3 class="headers">GENRES</h3>
                 <ul 
                   class="genres">
                 </ul>
               </div>
               <div 
                 class="col-5 m-2 side-card-box">
-                <h3>TAGS</h3>
+                <h3 class="headers">TAGS</h3>
                 <ul 
                   class="tags">
                 </ul>
@@ -534,12 +536,22 @@
           </div>
         </div>
       </div>
-      <button 
-        type="button" 
-        class="btn btn-secondary btn-lg btn-block" 
-        id="save">
-        Save
-      </button>
+      <div class="row justify-content-center m-3">
+        <button 
+          type="button" 
+          class="col-2 btn btn-secondary btn-lg buttonStyle mr-3" 
+          id="save">
+          <i class="fa fa-save"></i>
+          Save Game
+        </button>
+        <button 
+          type="button" 
+          class="col-2 btn btn-secondary btn-lg buttonStyle" 
+          id="searchAgain">
+          <i class="fa fa-repeat"></i>
+          Search Again
+        </button>
+      </div>
     </div>
   
 

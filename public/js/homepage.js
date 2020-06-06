@@ -40,6 +40,20 @@ $(document).ready(function() {
     generateHTML(Game);
   });
 
+  $("#searchAgain").on("click", async (event) => {
+    event.preventDefault();
+    console.log(Game);
+    init();
+    $("#cardCol").append(`<div class="loader"></div>`);
+    let queryUrl = userInput();
+    console.log("queryUrl", queryUrl);
+    const gameID = await generateRandomGameID(queryUrl);
+    console.log("gameID", gameID);
+    Game = await getGameData(gameID);
+    console.log("*******", Game);
+    generateHTML(Game);
+  });
+
   $("#save").on("click", async (event) => {
     event.preventDefault();
     const userData = await $.get("/api/user_data");
