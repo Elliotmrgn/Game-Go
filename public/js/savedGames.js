@@ -8,23 +8,25 @@ $(document).ready(function() {
     window.location.href = "/homepage";
   });
 
-  $("#back").on("click", "#delete", async function() {
+  $(".back").on("click", "#delete", async function() {
+    console.log(this)
+    
     const userData = await $.get("/api/user_data");
     console.log("userData", userData.id);
 
     const gameId = $(this).val();
 
-    console.log("gameId", gameId);
+    console.log("gameId********", gameId);
 
     deleteGame(userData.id, gameId);
   });
 
-  function deleteGame(UserId, gameId) {
+  async function deleteGame (UserId, gameId) {
     $.ajax({
       method: "DELETE",
       url: "/api/games/" + UserId + "/" + gameId,
     }).then(function() {
-      window.reload();
+      location.reload(); 
     });
   }
 });
