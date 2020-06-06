@@ -29,7 +29,7 @@ $(document).ready(function() {
 
   $("#search").on("click", async (event) => {
     event.preventDefault();
-    $("#failedSearch").show();
+    $("#failedSearch").hide();
     console.log(Game);
     init();
     $("#cardCol").append(`<div class="loader"></div>`);
