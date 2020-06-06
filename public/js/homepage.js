@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $("#failedSearch").hide();
   let Game = {};
   const userInput = () => {
     //gets platform value
@@ -28,30 +29,22 @@ $(document).ready(function() {
 
   $("#search").on("click", async (event) => {
     event.preventDefault();
+    $("#failedSearch").hide();
     console.log(Game);
     init();
     $("#cardCol").append(`<div class="loader"></div>`);
     let queryUrl = userInput();
     console.log("queryUrl", queryUrl);
-    const gameID = await generateRandomGameID(queryUrl);
-    console.log("gameID", gameID);
-    Game = await getGameData(gameID);
-    console.log("*******", Game);
-    generateHTML(Game);
-  });
-
-  $("#searchAgain").on("click", async (event) => {
-    event.preventDefault();
-    console.log(Game);
-    init();
-    $("#cardCol").append(`<div class="loader"></div>`);
-    let queryUrl = userInput();
-    console.log("queryUrl", queryUrl);
-    const gameID = await generateRandomGameID(queryUrl);
-    console.log("gameID", gameID);
-    Game = await getGameData(gameID);
-    console.log("*******", Game);
-    generateHTML(Game);
+    try {
+      const gameID = await generateRandomGameID(queryUrl);
+      console.log("gameID", gameID);
+      Game = await getGameData(gameID);
+      console.log("*******", Game);
+      generateHTML(Game);
+    } catch (err) {
+      console.log(err);
+      $("#failedSearch").show();
+    }
   });
 
   $("#save").on("click", async (event) => {
