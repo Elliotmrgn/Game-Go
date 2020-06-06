@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $("#failedLogin").hide();
   // Getting references to our form and inputs
   const loginForm = $("form.login");
   const emailInput = $("input#email-input");
@@ -33,7 +34,7 @@ $(document).ready(function() {
         // If there's an error, log the error
       })
       .catch((err) => {
-        $("#error").text("Username or password was incorrect. Try again!");
+        $("#failedLogin").show();
         console.log(err);
       });
   };
