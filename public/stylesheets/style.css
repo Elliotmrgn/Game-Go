@@ -1,5 +1,4 @@
-form.signup,
-form.login {
+form.signup, form.login {
   margin-top: 50px;
 }
 
@@ -9,44 +8,29 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-html,
-body {
+html, body {
   /* height: 100%; */
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
   animation: colorchange 175s linear 1s infinite; /* animation-name followed by duration in seconds*/
-  /* you could also use milliseconds (ms) or something like 2.5s */
-  -webkit-animation: colorchange 175s linear 0s infinite alternate; /* Chrome and Safari */
-}
+         /* you could also use milliseconds (ms) or something like 2.5s */
+      -webkit-animation: colorchange 175s linear 0s infinite alternate; /* Chrome and Safari */
+    }
 
-@keyframes colorchange {
-  0% {
-    background-color: rgb(0, 20, 20);
-  }
-  33% {
-    background-color: rgb(20, 0, 20);
-  }
-  66% {
-    background-color: rgb(20, 20, 0);
-  }
-  100% {
-    background-color: rgb(0, 20, 20);
-  }
-}
+    @keyframes colorchange
+    { 
+      0%  {background-color: rgb(0, 20, 20);}
+      33%  {background-color: rgb(20, 0, 20);}  
+      66%   {background-color: rgb(20, 20, 0);} 
+      100% {background-color: rgb(0, 20, 20);}
+   }
 
-@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */ {
-  0% {
-    background-color: rgb(0, 20, 20);
-  }
-  33% {
-    background-color: rgb(20, 0, 20);
-  }
-  66% {
-    background-color: rgb(20, 20, 0);
-  }
-  100% {
-    background-color: rgb(0, 20, 20);
-  }
-}
+    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+      0%  {background-color: rgb(0, 20, 20);}
+      33%  {background-color: rgb(20, 0, 20);}  
+      66%   {background-color: rgb(20, 20, 0);} 
+      100% {background-color: rgb(0, 20, 20);}
+   }
 
 .container {
   max-width: 1280px;
@@ -91,9 +75,7 @@ img#logo {
 }
 
 @media screen and (max-width: 800px) {
-  .left,
-  .main,
-  .right {
+  .left, .main, .right {
     width: 100%;
   }
 }
@@ -308,17 +290,17 @@ table caption {
   top: -20px;
 }
 
-#checkBtns input:hover + span {
+#checkBtns input:hover+span {
   background-color: #efe0e0;
   width: 100%;
 }
 
-#checkBtns input:checked:hover + span {
+#checkBtns input:checked:hover+span {
   background-color: #c11;
   color: #fff;
 }
 
-#checkBtns input:checked ~ .customBackground:after {
+#checkBtns input:checked~.customBackground:after {
   display: block;
 }
 
@@ -373,6 +355,7 @@ table caption {
   100% {
     transform: rotate(360deg);
   }
+
 }
 
 @keyframes click-wave {
