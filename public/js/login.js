@@ -1,5 +1,7 @@
 $(document).ready(function() {
+
   $("#failedLogin").hide();
+
 
   // Getting references to our form and inputs
   const loginForm = $("form.login");
