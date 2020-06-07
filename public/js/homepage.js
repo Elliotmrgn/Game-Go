@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  $("#failedSearch").hide();
-  $("#saveSuccess").hide();
   let Game = {};
   const userInput = () => {
     //gets platform value
