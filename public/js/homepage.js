@@ -82,7 +82,6 @@ $(document).ready(function() {
   })
 
   $(".description").on("click", "#show-less", () => {
-
     const description_short = Game.description.substring(0, 999)
     $(".description").html(`${description_short} <span id="ellipse"> . . . </span> <button id="show-more">Read More</button>`)
   })
