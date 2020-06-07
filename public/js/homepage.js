@@ -9,7 +9,7 @@ $(document).ready(function() {
     let genre = $("input[name='genre']:checked").val();
     //gets all tag values
     let tags = $("input[name='tags']:checked")
-      .map(function () {
+      .map(function() {
         return $(this).val();
       })
       .get();
@@ -75,16 +75,20 @@ $(document).ready(function() {
   });
 
   $(".description").on("click", "#show-more", () => {
-    console.log("click")
-    $("#ellipse").remove()
-    $("#show-more").remove()
-    $(".description").html(`${Game.description} <button id="show-less">Show Less</button>`)
-  })
+    console.log("click");
+    $("#ellipse").remove();
+    $("#show-more").remove();
+    $(".description").html(
+      `${Game.description} <button id="show-less">Show Less</button>`
+    );
+  });
 
   $(".description").on("click", "#show-less", () => {
-    const description_short = Game.description.substring(0, 999)
-    $(".description").html(`${description_short} <span id="ellipse"> . . . </span> <button id="show-more">Read More</button>`)
-  })
+    const description_short = Game.description.substring(0, 999);
+    $(".description").html(
+      `${description_short} <span id="ellipse"> . . . </span> <button id="show-more">Read More</button>`
+    );
+  });
 
   function saveGame(
     UserId,
