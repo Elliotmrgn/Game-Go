@@ -1,43 +1,75 @@
-form.signup, form.login {
+form.signup,
+form.login {
   margin-top: 50px;
 }
 
 body {
   /* background-color: rgb(32, 31, 31); */
   color: rgb(255, 255, 255);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-html, body {
+html,
+body {
   /* height: 100%; */
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: colorchange 175s linear 1s infinite; /* animation-name followed by duration in seconds*/
-         /* you could also use milliseconds (ms) or something like 2.5s */
-      -webkit-animation: colorchange 175s linear 0s infinite alternate; /* Chrome and Safari */
-    }
 
-    @keyframes colorchange
-    { 
-      0%  {background-color: rgb(0, 20, 20);}
-      33%  {background-color: rgb(20, 0, 20);}  
-      66%   {background-color: rgb(20, 20, 0);} 
-      100% {background-color: rgb(0, 20, 20);}
-   }
+  animation: colorchange 175s linear 1s infinite;
+  /* animation-name followed by duration in seconds*/
+  /* you could also use milliseconds (ms) or something like 2.5s */
+  -webkit-animation: colorchange 175s linear 0s infinite alternate;
+  /* Chrome and Safari */
 
-    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
-    {
-      0%  {background-color: rgb(0, 20, 20);}
-      33%  {background-color: rgb(20, 0, 20);}  
-      66%   {background-color: rgb(20, 20, 0);} 
-      100% {background-color: rgb(0, 20, 20);}
-   }
+}
 
-
-
-
-
+@keyframes colorchange {
+  0% {
+    background-color: rgb(0, 20, 20);
+  }
+  33% {
+    background-color: rgb(20, 0, 20);
+  }
+  66% {
+    background-color: rgb(20, 20, 0);
+  }
+  100% {
+    background-color: rgb(0, 20, 20);
+  }
+}
 
 
+@-webkit-keyframes colorchange
+/* Safari and Chrome - necessary duplicate */
+
+  {
+
+  0% {
+    background-color: rgb(0, 20, 20);
+  }
+  33% {
+    background-color: rgb(20, 0, 20);
+  }
+  66% {
+    background-color: rgb(20, 20, 0);
+  }
+  100% {
+    background-color: rgb(0, 20, 20);
+  }
+}
+
+
+h1, h3 {
+  text-shadow: white 0px 0px 10px;
+}
+
+p, ul, label {
+  text-shadow: black 0px 0px 10px;
+}
+
+a {
+  font-weight: 700;
+  text-shadow: white 0px 0px 10px;
+}
 
 
 .container {
@@ -83,7 +115,9 @@ img#logo {
 }
 
 @media screen and (max-width: 800px) {
-  .left, .main, .right {
+  .left,
+  .main,
+  .right {
     width: 100%;
   }
 }
@@ -95,7 +129,6 @@ img#logo {
   box-sizing: border-box;
   outline: none;
   list-style: none;
-  font-family: "Montserrat", sans-serif;
 }
 
 .wrapper {
@@ -227,14 +260,19 @@ img#logo {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: #424242;
+  background: #536976;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient( to right, #536976, #90a198);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient( to right, #536976, #90a198);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
   color: rgb(255, 255, 255);
-  box-shadow: 7px 7px 7px #585858;
   /* display: none; */
 }
 
@@ -290,17 +328,17 @@ table caption {
   top: -20px;
 }
 
-#checkBtns input:hover+span {
+#checkBtns input:hover + span {
   background-color: #efe0e0;
   width: 100%;
 }
 
-#checkBtns input:checked:hover+span {
+#checkBtns input:checked:hover + span {
   background-color: #c11;
   color: #fff;
 }
 
-#checkBtns input:checked~.customBackground:after {
+#checkBtns input:checked ~ .customBackground:after {
   display: block;
 }
 
@@ -322,7 +360,8 @@ table caption {
 }
 
 .side-card-box {
-  border: 1px solid cadetblue;
+  border: 1px solid #34373b;
+  border-radius: 5px;
   margin-bottom: 5px;
 }
 
@@ -334,14 +373,6 @@ table caption {
   background-color: rgba(23, 23, 24);
   text-align: center;
 }
-
-/* .landingBody {
-  background-image: url("https://media.rawg.io/media/games/7e3/7e327a055bedb9b6d1be86593bef473d.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 .loader {
   margin: 25px auto;
@@ -362,4 +393,219 @@ table caption {
   100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: 2px solid white;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+
+.option-input:hover {
+  background: #9faab7;
+}
+
+.option-input:checked {
+  background: #34373b;
+}
+
+.option-input:checked::before {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  content: "✔";
+  display: inline-block;
+  font-size: 16.66667px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #34373b;
+  content: "";
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.option-input.radio {
+  border-radius: 50%;
+}
+
+.option-input.radio::after {
+  border-radius: 50%;
+}
+
+.searchFilters {
+  background: #536976;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient( to right, #536976, #9bafa4);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient( to right, #536976, #9bafa4);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 10px;
+}
+
+.headers {
+  color: #34373b;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.buttonStyle {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#search {
+  background-color: #34373b;
+  border: #34373b;
+}
+
+#search:hover {
+  background-color: #454749;
+}
+
+.resultHeaders {
+  color: #34373b;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+li {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+#card {
+  height: 250px;
+}
+
+h1 {
+  font-size: 2.2em;
+}
+
+.flip {
+  position: relative;
+}
+
+.flip>.front, .flip>.back {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 2s;
+  transition-property: transform, opacity;
+}
+
+.flip>.front {
+  transform: rotateY(0deg);
+}
+
+.flip>.back {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg);
+}
+
+.flip:hover>.front {
+  transform: rotateY(180deg);
+}
+
+.flip:hover>.back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.flip {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+  /* width: 400px; */
+}
+
+.flip>.front, .flip>.back {
+  display: block;
+  color: white;
+  width: inherit;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 300px;
+  padding: 1em 2em;
+  background: #313131;
+  border-radius: 10px;
+}
+
+.flip>.front p, .flip>.back p {
+  font-size: 0.9125rem;
+  line-height: 160%;
+  color: #999;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+}
+
+.descr {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }

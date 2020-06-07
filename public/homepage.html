@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Passport Authentication</title>
+    <title>GameGo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="logo.PNG" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+  </head>
+
+  <head>
+    <title>GameGo</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -9,6 +31,14 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap"
+      rel="stylesheet"
     />
     <link href="stylesheets/style.css" rel="stylesheet" />
   </head>
@@ -33,7 +63,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="homepage.html"
+            <a class="nav-link" href="homepage"
               >HOME <span class="sr-only">(current)</span></a
             >
           </li>
@@ -41,287 +71,378 @@
             <a class="nav-link" href="/saved-games">SAVED GAMES</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="login.html">LOGIN</a>
+            <a class="nav-link" href="login">LOGIN</a>
           </li>
         </ul>
       </div>
     </nav>
     <div class="container">
-      <button
-        class="btn btn-primary btn-lg btn-block"
-        type="button"
-        data-toggle="collapse"
-        data-target="#search-params"
-        aria-expanded="false"
-        aria-controls="search-params"
-      >
-        Search Criteria
-      </button>
-
-      <div class="collapse show" id="search-params">
-        <div class="row">
-          <div class="col-12">
-            <h1>PLATFORM</h1>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="platform"
-                id="xbox-one"
-                value="1"
-              />
-              <label class="form-check-label" for="xbox-one">XBOX ONE</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="platform"
-                id="ps4"
-                value="18"
-              />
-              <label class="form-check-label" for="ps4">PS4</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="platform"
-                id="pc"
-                value="4"
-              />
-              <label class="form-check-label" for="pc">PC</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6">
-            <h1>GENRE</h1>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="action"
-                value="4"
-              />
-              <label class="form-check-label" for="action">ACTION</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="indie"
-                value="51"
-              />
-              <label class="form-check-label" for="indie">INDIE</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="3"
-                value="adventure"
-              />
-              <label class="form-check-label" for="adventure">ADVENTURE</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="rpg"
-                value="5"
-              />
-              <label class="form-check-label" for="rpg">RPG</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="10"
-                value="strategy"
-              />
-              <label class="form-check-label" for="strategy">STRATEGY</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="shooter"
-                value="2"
-              />
-              <label class="form-check-label" for="shooter">SHOOTER</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="casual"
-                value="40"
-              />
-              <label class="form-check-label" for="casual">CASUAL</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="14"
-                value="simulation"
-              />
-              <label class="form-check-label" for="simulation"
-                >SIMULATION</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="puzzle"
-                value="7"
-              />
-              <label class="form-check-label" for="puzzle">PUZZLE</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="arcade"
-                value="11"
-              />
-              <label class="form-check-label" for="arcade">ARCADE</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="racing"
-                value="1"
-              />
-              <label class="form-check-label" for="racing">RACING</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="genre"
-                id="sports"
-                value="15"
-              />
-              <label class="form-check-label" for="sports">SPORTS</label>
-            </div>
-          </div>
-          <div class="col-6">
-            <h1>TAGS</h1>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="single-player"
-                value="31"
-              />
-              <label class="form-check-label" for="single-player"
-                >SINGLE PLAYER</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="multiplayer"
-                value="7"
-              />
-              <label class="form-check-label" for="multiplayer"
-                >MULTIPLAYER</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="controller"
-                value="40836"
-              />
-              <label class="form-check-label" for="controller"
-                >FULL CONTROLLER SUPPORT</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="soundtrack"
-                value="42"
-              />
-              <label class="form-check-label" for="soundtrack"
-                >GREAT SOUNDTRACK</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="coop"
-                value="18"
-              />
-              <label class="form-check-label" for="coop">CO-OP</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="first-person"
-                value="8"
-              />
-              <label class="form-check-label" for="first-person"
-                >FIRST PERSON</label
-              >
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="pve"
-                value="171"
-              />
-              <label class="form-check-label" for="pve">PVE</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                name="tags"
-                type="checkbox"
-                id="pvp"
-                value="157"
-              />
-              <label class="form-check-label" for="pvp">PVP</label>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="btn btn-info btn-lg btn-block" id="search">
-          Search
+      <div class="row justify-content-center pt-3">
+        <button
+          class="col-2 btn btn-secondary btn-lg btn-block buttonStyle"
+          type="button"
+          data-toggle="collapse"
+          data-target="#search-params"
+          aria-expanded="false"
+          aria-controls="search-params"
+        >
+          Search Criteria
         </button>
       </div>
+      <div
+        class="alert alert-warning alert-dismissible fade show"
+        role="alert"
+        id="failedSearch"
+      >
+        <strong>Search Error</strong> One or multiple search options are left
+        empty. Please check your search options.
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="searchFilters mt-3">
+        <div class="collapse show" id="search-params">
+          <div class="row text-center pt-3">
+            <div class="col-12">
+              <h1 class="headers">PLATFORM</h1>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input option-input radio"
+                  type="radio"
+                  name="platform"
+                  id="xbox-one"
+                  value="1"
+                />
+                <label class="form-check-label" for="xbox-one">Xbox One</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input option-input radio"
+                  type="radio"
+                  name="platform"
+                  id="ps4"
+                  value="18"
+                />
+                <label class="form-check-label" for="ps4">PS4</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input option-input radio"
+                  type="radio"
+                  name="platform"
+                  id="pc"
+                  value="4"
+                />
+                <label class="form-check-label" for="pc">PC</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game Genres -->
+          <div class="row pt-3 justify-content-center">
+            <div class="col-6 justify-content-center">
+              <h1 class="headers">GENRE</h1>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="action"
+                      value="4"
+                    />
+                    <label class="form-check-label" for="action">Action</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="indie"
+                      value="51"
+                    />
+                    <label class="form-check-label" for="indie">Indie</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="3"
+                      value="adventure"
+                    />
+                    <label class="form-check-label" for="adventure"
+                      >Adventure</label
+                    >
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="rpg"
+                      value="5"
+                    />
+                    <label class="form-check-label" for="rpg">RPG</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="10"
+                      value="strategy"
+                    />
+                    <label class="form-check-label" for="strategy"
+                      >Strategy</label
+                    >
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="shooter"
+                      value="2"
+                    />
+                    <label class="form-check-label" for="shooter"
+                      >Shooter</label
+                    >
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="casual"
+                      value="40"
+                    />
+                    <label class="form-check-label" for="casual">Casual</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="14"
+                      value="simulation"
+                    />
+                    <label class="form-check-label" for="simulation"
+                      >Simulation</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="puzzle"
+                      value="7"
+                    />
+                    <label class="form-check-label" for="puzzle">Puzzle</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="arcade"
+                      value="11"
+                    />
+                    <label class="form-check-label" for="arcade">Arcade</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="racing"
+                      value="1"
+                    />
+                    <label class="form-check-label" for="racing">Racing</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input radio"
+                      type="radio"
+                      name="genre"
+                      id="sports"
+                      value="15"
+                    />
+                    <label class="form-check-label" for="sports">Sports</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="col-6">
+              <h1 class="headers">GAME OPTIONS</h1>
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="single-player"
+                      value="31"
+                    />
+                    <label class="form-check-label" for="single-player"
+                      >Single Player</label
+                    >
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="multiplayer"
+                      value="7"
+                    />
+                    <label class="form-check-label" for="multiplayer"
+                      >Multiplayer</label
+                    >
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="pvp"
+                      value="157"
+                    />
+                    <label class="form-check-label" for="pvp">PvP</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="first-person"
+                      value="8"
+                    />
+                    <label class="form-check-label" for="first-person"
+                      >First Person</label
+                    >
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="soundtrack"
+                      value="42"
+                    />
+                    <label class="form-check-label" for="soundtrack"
+                      >Great Soundtrack</label
+                    >
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="pve"
+                      value="171"
+                    />
+                    <label class="form-check-label" for="pve">PvE</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="coop"
+                      value="18"
+                    />
+                    <label class="form-check-label" for="coop">Co-Op</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input option-input checkbox"
+                      name="tags"
+                      type="checkbox"
+                      id="controller"
+                      value="40836"
+                    />
+                    <label class="form-check-label" for="controller"
+                      >Full Controller Support</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center pt-3">
+            <button
+              type="button"
+              class="col-2 mb-3 btn btn-info btn-lg btn-block buttonStyle"
+              id="search"
+            >
+              <i class="fa fa-search" aria-hidden="true"></i>
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="row">
-        <div class="col-md-12" id="cardCol">
+        <div class="col-12" id="cardCol">
           <div class="card" id="gameData">
+            <div class="col-12">
+              <div class="title resultHeaders">Testing</div>
+            </div>
             <!--Carousel Wrapper-->
             <div class="row">
               <div class="col-12">
@@ -361,12 +482,11 @@
             </div>
             <!--/.Carousel Wrapper-->
             <!-- TITLE -->
-            <div class="row">
+            <div class="row mt-3">
               <div class="col-12">
-                <div class="title">testing</div>
+                <h3 class="headers">GAME DESCRIPTION</h3>
               </div>
-              <div class="col-8">
-                <h3>DESCRIPTION</h3>
+              <div class="col-12">
                 <p class="description">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Debitis minus aliquid culpa, ad sequi unde quis molestias iste
@@ -381,50 +501,105 @@
                   totam amet beatae nulla?Lorem ipsum dolor sit amet consectetur
                   adipisicing elit. Debitis minus aliquid culpa, ad sequi unde
                   quis molestias iste in excepturi dolor pariatur facilis vitae
-                  commodi reiciendis totam amet beatae nulla?
+                  commodi reiciendis totam amet beatae nulla? Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Debitis minus aliquid
+                  culpa, ad sequi unde quis molestias iste in excepturi dolor
+                  pariatur facilis vitae commodi reiciendis totam amet beatae
+                  nulla? Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Debitis minus aliquid culpa, ad sequi unde quis
+                  molestias iste in excepturi dolor pariatur facilis vitae
+                  commodi reiciendis totam amet beatae nulla?Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Debitis minus aliquid
+                  culpa, ad sequi unde quis molestias iste in excepturi dolor
+                  pariatur facilis vitae commodi reiciendis totam amet beatae
+                  nulla?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis minus aliquid culpa, ad sequi unde quis molestias iste
+                  in excepturi dolor pariatur facilis vitae commodi reiciendis
+                  totam amet beatae nulla? Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Debitis minus aliquid culpa, ad
+                  sequi unde quis molestias iste in excepturi dolor pariatur
+                  facilis vitae commodi reiciendis totam amet beatae nulla?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Debitis minus aliquid culpa, ad sequi unde quis molestias iste
+                  in excepturi dolor pariatur facilis vitae commodi reiciendis
+                  totam amet beatae nulla?Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Debitis minus aliquid culpa, ad sequi unde
+                  quis molestias iste in excepturi dolor pariatur facilis vitae
+                  commodi reiciendis totam amet beatae nulla?Lorem ipsum dolor
+                  sit amet consectetur adipisicing elit. Debitis minus aliquid
+                  culpa, ad sequi unde quis molestias iste in excepturi dolor
+                  pariatur facilis vitae commodi reiciendis totam amet beatae
+                  nulla?
                 </p>
               </div>
-              <div class="col-4">
-                <div class="side-card">
-                  <div class="side-card-box">
-                    <h3>RELEASE DATE</h3>
-                    <p class="release-date"></p>
-                  </div>
-                  <div class="side-card-box">
-                    <h3>DEVELOPERS</h3>
-                    <ul class="developers"></ul>
-                  </div>
-                  <div class="side-card-box">
-                    <h3>PLATFORMS</h3>
-                    <ul class="platforms"></ul>
-                  </div>
-                  <div class="side-card-box">
-                    <h3>STORES</h3>
-                    <ul class="stores"></ul>
-                  </div>
-                </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-3 side-card-box">
+                <h3 class="headers">RELEASE DATE</h3>
+                <p class="release-date"></p>
+              </div>
+              <div class="col-3 side-card-box">
+                <h3 class="headers">DEVELOPERS</h3>
+                <ul class="developers"></ul>
+              </div>
+              <div class="col-3 side-card-box">
+                <h3 class="headers">PLATFORMS</h3>
+                <ul class="platforms"></ul>
+              </div>
+              <div class="col-3 side-card-box">
+                <h3 class="headers">STORES</h3>
+                <ul class="stores"></ul>
               </div>
             </div>
-            <div class="row">
-              <div class="col-6">
-                <h3>GENRES</h3>
+
+            <div class="row mt-3 justify-content-center">
+              <div class="col-5 m-2 side-card-box">
+                <h3 class="headers">GENRES</h3>
                 <ul class="genres"></ul>
               </div>
-              <div class="col-6">
-                <h3>TAGS</h3>
+              <div class="col-5 m-2 side-card-box">
+                <h3 class="headers">TAGS</h3>
                 <ul class="tags"></ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        class="btn btn-secondary btn-lg btn-block"
-        id="save"
+
+      <div
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+        id="saveSuccess"
       >
-        Save
-      </button>
+        <strong>Save Success!</strong> Your game has been saved to your account.
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="row justify-content-center m-3">
+        <button
+          type="button"
+          class="col-2 btn btn-secondary btn-lg buttonStyle mr-3"
+          id="save"
+        >
+          <i class="fa fa-save"></i>
+          Save Game
+        </button>
+        <button
+          type="button"
+          class="col-2 btn btn-secondary btn-lg buttonStyle"
+          id="searchAgain"
+        >
+          <i class="fa fa-repeat"></i>
+          Search Again
+        </button>
+      </div>
     </div>
 
     <footer class="footer">
