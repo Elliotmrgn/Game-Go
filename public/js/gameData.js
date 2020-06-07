@@ -124,7 +124,7 @@ const generateHTML = (Game) => {
         $(".carousel-item").addClass("active");
       }
     })
-    $(".title").html(`<h1>${Game.name}</h1>`);
+    $(".title").html(`<h1><strong>${Game.name}<strong></h1>`);
     $(".release-date").text(Game.released);
     Game.platforms.forEach((platform) => {
       //allPlatforms.push(` ${platform.platform.name}`)
