@@ -7,17 +7,14 @@ const db = require('../models');
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/saved-games",  (req, res) => {
-  console.log(req.user)
   if (!req.user) {res.redirect("/login");}
   else {
-    
     db.Game.findAll({
       where:{
         UserId: req.user.id
       }
     })
     .then(data => {
-    console.log("data", data[0])
       const hbsObject = {
         games: data
       }

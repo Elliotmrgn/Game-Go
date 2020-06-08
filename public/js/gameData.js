@@ -37,7 +37,6 @@ const getGameData = async (id) => {
     url: `https://api.rawg.io/api/games/${id}`,
     type: "GET",
   }).then(async (game) => {
-    console.log("game", game);
     //add in release to save memory
     Game.name = game.name;
     Game.id = game.id;
@@ -104,8 +103,6 @@ const init = () => {
 };
 
 const generateHTML = (Game) => {
-  //builds screen shot carousel
-
   Game.screenshots.forEach((screenshot, i) => {
     $(".carousel-indicators").append(
       `<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`

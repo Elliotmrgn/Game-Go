@@ -29,17 +29,13 @@ $(document).ready(function() {
   $("#search").on("click", async (event) => {
     event.preventDefault();
     $("#failedSearch").hide();
-    console.log(Game);
     init();
     $("#cardCol").append(`<div class="loader"></div>`);
     let queryUrl = userInput();
     $("#searchAgain").show();
-    console.log("queryUrl", queryUrl);
     try {
       const gameID = await generateRandomGameID(queryUrl);
-      console.log("gameID", gameID);
       Game = await getGameData(gameID);
-      console.log("*******", Game);
       generateHTML(Game);
     } catch (err) {
       console.log(err);
@@ -74,7 +70,6 @@ $(document).ready(function() {
   });
 
   $(".description").on("click", "#show-more", () => {
-    console.log("click");
     $("#ellipse").remove();
     $("#show-more").remove();
     $(".description").html(
