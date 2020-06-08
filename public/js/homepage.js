@@ -51,7 +51,6 @@ $(document).ready(function() {
   $("#save").on("click", async (event) => {
     event.preventDefault();
     const userData = await $.get("/api/user_data");
-    console.log("userData", userData.id);
 
     saveGame(
       userData.id,

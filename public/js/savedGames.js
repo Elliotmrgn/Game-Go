@@ -1,7 +1,6 @@
 $(document).ready(function() {
   //click handler for all full details buttons on card
   $(".fullDetails").on("click", function() {
-    console.log(this);
     const gameID = $(this).val();
     console.log("gameID", gameID);
     localStorage.setItem("gameID", gameID);
@@ -9,15 +8,9 @@ $(document).ready(function() {
   });
 
   $(".back").on("click", "#delete", async function() {
-    console.log(this)
     
     const userData = await $.get("/api/user_data");
-    console.log("userData", userData.id);
-
     const gameId = $(this).val();
-
-    console.log("gameId********", gameId);
-
     deleteGame(userData.id, gameId);
   });
 
