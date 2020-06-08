@@ -8,7 +8,6 @@ html{
 }
 
 body {
-  /* background-color: rgb(32, 31, 31); */
   color: rgb(255, 255, 255);
   font-family: "Poppins", sans-serif;
   margin-bottom: 80px;
@@ -18,10 +17,7 @@ html, body {
   
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
   animation: colorchange 175s linear 1s infinite;
-  /* animation-name followed by duration in seconds*/
-  /* you could also use milliseconds (ms) or something like 2.5s */
   -webkit-animation: colorchange 175s linear 0s infinite alternate;
-  /* Chrome and Safari */
 
 }
 
@@ -41,8 +37,6 @@ html, body {
 }
 
 @-webkit-keyframes colorchange
-/* Safari and Chrome - necessary duplicate */
-
   {
   0% {
     background-color: rgb(0, 20, 20);
