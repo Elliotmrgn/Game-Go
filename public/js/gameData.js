@@ -88,6 +88,7 @@ const init = () => {
   $("#gameData").hide();
   $(".loader").remove();
   $("#save").hide();
+  $("#searchAgain").hide();
   $(".carousel-indicators").empty();
   $(".carousel-inner").empty();
   $(".title").empty();
