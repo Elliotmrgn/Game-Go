@@ -444,3 +444,12 @@ h1 {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+
+.lead {
+  margin-bottom: 50px;
+  
+}
+
+.landing {
+  background: rgba(32, 28, 28, 0.7);
+}

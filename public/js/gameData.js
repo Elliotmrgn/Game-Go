@@ -156,7 +156,7 @@ const generateHTML = (Game) => {
   if (description.length > 1000) {
     const description_split = description.substring(0, 999);
     $(".description").html(
-      `${description_split} <span id="ellipse"> . . . </span> <button id="show-more">Show More</button>`
+      `${description_split} <span id="ellipse"> . . . </span> <button class="btn btn-primary btn-sm btn-dark buttonStyle" id="show-more">Show More</button>`
     );
   } else {
     $(".description").html(description);

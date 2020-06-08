@@ -78,14 +78,14 @@ $(document).ready(function() {
     $("#ellipse").remove();
     $("#show-more").remove();
     $(".description").html(
-      `${Game.description} <button id="show-less">Show Less</button>`
+      `${Game.description} <button class="btn btn-primary btn-sm btn-dark buttonStyle" id="show-less">Show Less</button>`
     );
   });
 
   $(".description").on("click", "#show-less", () => {
     const description_short = Game.description.substring(0, 999);
     $(".description").html(
-      `${description_short} <span id="ellipse"> . . . </span> <button id="show-more">Read More</button>`
+      `${description_short} <span id="ellipse"> . . . </span> <button class="btn btn-primary btn-sm btn-dark buttonStyle" id="show-more">Read More</button>`
     );
   });
 
