@@ -33,6 +33,7 @@ $(document).ready(function() {
     init();
     $("#cardCol").append(`<div class="loader"></div>`);
     let queryUrl = userInput();
+    $("#searchAgain").show();
     console.log("queryUrl", queryUrl);
     try {
       const gameID = await generateRandomGameID(queryUrl);
@@ -42,6 +43,7 @@ $(document).ready(function() {
       generateHTML(Game);
     } catch (err) {
       console.log(err);
+      $(".loader").remove();
       $("#failedSearch").show();
     }
   });
@@ -87,6 +89,10 @@ $(document).ready(function() {
       `${description_short} <span id="ellipse"> . . . </span> <button id="show-more">Read More</button>`
     );
   });
+
+  $("#searchAgain").on("click", ()=>{
+      $("#search").click();
+  })
 
   function saveGame(
     UserId,

@@ -1,5 +1,4 @@
-form.signup,
-form.login {
+form.signup, form.login {
   margin-top: 50px;
 }
 
@@ -9,17 +8,16 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-html,
-body {
+html, body {
   /* height: 100%; */
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
-
   animation: colorchange 175s linear 1s infinite;
   /* animation-name followed by duration in seconds*/
   /* you could also use milliseconds (ms) or something like 2.5s */
   -webkit-animation: colorchange 175s linear 0s infinite alternate;
   /* Chrome and Safari */
 
+  list-style: none;
 }
 
 @keyframes colorchange {
@@ -37,12 +35,10 @@ body {
   }
 }
 
-
 @-webkit-keyframes colorchange
 /* Safari and Chrome - necessary duplicate */
 
   {
-
   0% {
     background-color: rgb(0, 20, 20);
   }
@@ -57,42 +53,12 @@ body {
   }
 }
 
-
-h1, h3 {
-  text-shadow: white 0px 0px 10px;
-}
-
-p, ul, label {
-  text-shadow: black 0px 0px 10px;
-}
-
-a {
-  font-weight: 700;
-  text-shadow: white 0px 0px 10px;
-}
-
-
 .container {
   max-width: 1280px;
 }
 
-.navbar {
-  background-color: transparent;
-  background: transparent;
-  border-color: transparent;
-}
 
-.navbar li {
-  color: #000;
-}
 
-h2 {
-  color: white;
-}
-
-.formcontrol {
-  color: rgb(29, 28, 28);
-}
 
 .navbar-brand {
   padding-bottom: 15px;
@@ -114,133 +80,13 @@ img#logo {
   transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 800px) {
-  .left,
-  .main,
-  .right {
-    width: 100%;
-  }
-}
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
   list-style: none;
-}
-
-.wrapper {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.wrapper .search_box {
-  width: 500px;
-  background: #fff;
-  border-radius: 5px;
-  height: 65px;
-  display: flex;
-  padding: 10px;
-  box-shadow: 0 8px 6px -10px #b3c6ff;
-}
-
-.wrapper .search_box .dropdown {
-  width: 150px;
-  border-right: 2px solid #dde2f1;
-  color: #9fa3b1;
-  position: relative;
-  cursor: pointer;
-}
-
-.wrapper .search_box .dropdown .default_option {
-  text-transform: uppercase;
-  padding: 13px 15px;
-  font-size: 14px;
-}
-
-.wrapper .search_box .dropdown ul {
-  position: absolute;
-  top: 70px;
-  left: -10px;
-  background: #fff;
-  width: 150px;
-  border-radius: 5px;
-  padding: 20px;
-  display: none;
-  box-shadow: 8px 8px 6px -10px #b3c6ff;
-}
-
-.wrapper .search_box .dropdown ul.active {
-  display: block;
-}
-
-.wrapper .search_box .dropdown ul li {
-  padding-bottom: 20px;
-}
-
-.wrapper .search_box .dropdown ul li:last-child {
-  padding-bottom: 0;
-}
-
-.wrapper .search_box .dropdown ul li:hover {
-  color: #6f768d;
-}
-
-.wrapper .search_box .dropdown:before {
-  content: "";
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  border: 8px solid;
-  border-color: #19bd50 transparent transparent transparent;
-}
-
-.wrapper .search_box .search_field {
-  width: 350px;
-  height: 100%;
-  position: relative;
-}
-
-.wrapper .search_box .search_field .input {
-  width: 100%;
-  height: 100%;
-  border: 0px;
-  font-size: 16px;
-  padding-left: 20px;
-  padding-right: 38px;
-  color: #6f768d;
-}
-
-.wrapper .search_box .search_field .fas {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 22px;
-  color: #5078ef;
-  cursor: pointer;
-}
-
-::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: #9fa3b1;
-}
-
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #9fa3b1;
-}
-
-:-ms-input-placeholder {
-  /* IE 10+ */
-  color: #9fa3b1;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .column {
@@ -268,12 +114,12 @@ img#logo {
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient( to right, #536976, #90a198);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   border-radius: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
   color: rgb(255, 255, 255);
   /* display: none; */
+  
 }
 
 img {
@@ -281,33 +127,6 @@ img {
   max-height: 540px;
   margin-right: auto;
   margin-left: auto;
-}
-
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 200px;
-  }
-}
-
-table {
-  table-layout: fixed;
-  width: 96%;
-  border-collapse: collapse;
-  border: 1px black solid;
-  margin: 30px;
-}
-
-table td {
-  width: 50%;
-  border: 1px black solid;
-  padding: 9px;
-  text-align: center;
-}
-
-table caption {
-  font-style: italic;
 }
 
 #checkBtns {
@@ -328,17 +147,17 @@ table caption {
   top: -20px;
 }
 
-#checkBtns input:hover + span {
+#checkBtns input:hover+span {
   background-color: #efe0e0;
   width: 100%;
 }
 
-#checkBtns input:checked:hover + span {
+#checkBtns input:checked:hover+span {
   background-color: #c11;
   color: #fff;
 }
 
-#checkBtns input:checked ~ .customBackground:after {
+#checkBtns input:checked~.customBackground:after {
   display: block;
 }
 
@@ -489,6 +308,7 @@ table caption {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 30px;
+  text-shadow: white 0px 0px 10px;
 }
 
 .buttonStyle {
@@ -496,6 +316,10 @@ table caption {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 20px;
+}
+
+#searchAgain{
+  margin-left: 10px;
 }
 
 #search {
@@ -507,12 +331,22 @@ table caption {
   background-color: #454749;
 }
 
+.store {
+  text-shadow: white 0px 0px 10px;
+  font-weight: 700 !important;
+}
 .resultHeaders {
   color: #34373b;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 35px;
+  text-shadow: white 0px 0px 10px;
 }
+
+#gameData {
+  text-shadow: black 0px 0px 10px;
+}
+
 
 p {
   font-family: "Poppins", sans-serif;
@@ -530,6 +364,7 @@ li {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-size: 16px;
+  list-style: none;
 }
 
 #card {
