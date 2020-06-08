@@ -8,7 +8,7 @@ module.exports = (app) => {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("../public/homepage");
+      res.redirect("../public/homepage.html");
     }
     res.sendFile(path.join(__dirname, "../public/landingPage.html"));
   });
