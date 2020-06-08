@@ -35,7 +35,4 @@ module.exports = (app) => {
     res.sendFile(path.join(__dirname, "../public/homepage.html"));
   });
 
-  app.get("/saved-games", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/savedGames.handlebars"));
-  });
 };

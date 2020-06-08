@@ -2,22 +2,23 @@ form.signup, form.login {
   margin-top: 50px;
 }
 
+html{
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  /* background-color: rgb(32, 31, 31); */
   color: rgb(255, 255, 255);
   font-family: "Poppins", sans-serif;
+  margin-bottom: 80px;
 }
 
 html, body {
-  /* height: 100%; */
+  
   background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
   animation: colorchange 175s linear 1s infinite;
-  /* animation-name followed by duration in seconds*/
-  /* you could also use milliseconds (ms) or something like 2.5s */
   -webkit-animation: colorchange 175s linear 0s infinite alternate;
-  /* Chrome and Safari */
 
-  list-style: none;
 }
 
 @keyframes colorchange {
@@ -36,8 +37,6 @@ html, body {
 }
 
 @-webkit-keyframes colorchange
-/* Safari and Chrome - necessary duplicate */
-
   {
   0% {
     background-color: rgb(0, 20, 20);
@@ -323,7 +322,7 @@ img {
 }
 
 #search {
-  background-color: #34373b;
+  background-color: #9c9c9c;
   border: #34373b;
 }
 
@@ -443,4 +442,17 @@ h1 {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+}
+
+
+.footer {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #34373b;
+  text-align: center;
 }

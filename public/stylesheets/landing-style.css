@@ -1,0 +1,5 @@
+html, .landingBody {
+    background: url(/public/landing-background.jpg);
+    z-index: 1;
+    
+}

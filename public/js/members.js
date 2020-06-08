@@ -7,7 +7,6 @@ $(document).ready(function() {
   });
 
   $("#logout").on("click", () =>{
-    console.log("click")
     $.get("/logout").then(()=>{
       window.location.replace("/login")
     })

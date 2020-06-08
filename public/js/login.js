@@ -6,17 +6,6 @@ $(document).ready(function() {
   
   $("#failedLogin").hide();
   
-  $.get("/api/user_data").then(function(data) {
-    if (data){
-      console.log("*****",data)
-    }
-    else{
-      console.log("~~~~~", data)
-    }
-  });
-
-
-  
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", (event) => {
     event.preventDefault();

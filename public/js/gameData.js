@@ -31,13 +31,13 @@ const generateRandomGameID = async (queryUrl) => {
   });
   return randomGameID;
 };
+
 const getGameData = async (id) => {
   let Game = {};
   await $.ajax({
     url: `https://api.rawg.io/api/games/${id}`,
     type: "GET",
   }).then(async (game) => {
-    console.log("game", game);
     //add in release to save memory
     Game.name = game.name;
     Game.id = game.id;
@@ -103,9 +103,12 @@ const init = () => {
   $("#saveSuccess").hide();
 };
 
-const generateHTML = (Game) => {
-  //builds screen shot carousel
+const loggedIn = async ()=>{
+  const userData = await $.get("/api/user_data");
+  return userData
+}
 
+const generateHTML = async (Game) => {
   Game.screenshots.forEach((screenshot, i) => {
     $(".carousel-indicators").append(
       `<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`
@@ -170,7 +173,10 @@ const generateHTML = (Game) => {
         </div>`);
   }
   $("#search-params").removeClass("show");
-  $("#save").show();
+  const canSave = await loggedIn();
+  if (canSave.id){
+    $("#save").show();
+  }
   $(".loader").hide();
   $("#gameData").show();
 };

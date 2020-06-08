@@ -1,29 +1,28 @@
 const express = require("express");
-
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 const router = express.Router();
 
 // Import the model to use its database functions.
 const db = require('../models');
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/saved-games", (req, res) => {
-  db.Game.findAll()
-    .then(data => {
-      console.log(data);
-      const hbsObject = {
-        games: data,
-        style: 'savedGames.css'
+router.get("/saved-games",  (req, res) => {
+  if (!req.user) {res.redirect("/login");}
+  else {
+    db.Game.findAll({
+      where:{
+        UserId: req.user.id
       }
-      
-      console.log('hbsObject!!!!!!!!!!: ', hbsObject)
-      
-
+    })
+    .then(data => {
+      const hbsObject = {
+        games: data
+      }
       res.render("savedGames", hbsObject);
     });
-  });
+  }
+});
 
-  router.get("/random", (req, res)=>{
-    
-  })
+
 
 module.exports = router;
