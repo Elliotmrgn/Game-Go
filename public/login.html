@@ -4,6 +4,7 @@
     <title>Passport Authentication</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="logo.PNG" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -15,7 +16,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-      <a class="navbar-brand" href="homepage.html"
+      <a class="navbar-brand" href="homepage"
         ><img src="gamego!.png" alt="logo" width="150" height="30"
       /></a>
       <button
@@ -32,13 +33,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="homepage.html">HOME</a>
+            <a class="nav-link" href="homepage">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="bookmarks.html">BOOKMARKS</a>
+            <a class="nav-link" href="saved-games">SAVED GAMES</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="login.html"
+            <a class="nav-link" href="login"
               >LOGIN<span class="sr-only">(current)</span></a
             >
           </li>
@@ -69,7 +70,33 @@
                 placeholder="Password"
               />
             </div>
-            <button type="submit" class="btn btn-default btn-secondary">Login</button>
+
+            <!--Alert for a failed login due to inccorect user info-->
+            <div
+              class="alert alert-warning alert-dismissible fade show"
+              role="alert"
+              id="failedLogin"
+            >
+              <p><strong>Incorrect Login</strong></p>
+              <p>
+                Your password or email was not recognized. Please retype and
+                login again, or click
+                <a href="signup.html" class="alert-link">here</a> to make an
+                account.</p>
+              </p>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <button type="submit" class="btn btn-default btn-secondary">
+              Login
+            </button>
+
           </form>
           <br />
           <p>Or sign up <a href="signup.html">here</a></p>
