@@ -318,7 +318,11 @@ img {
   font-size: 20px;
 }
 
-#search, .logout {
+#searchAgain{
+  margin-left: 10px;
+}
+
+#search {
   background-color: #34373b;
   border: #34373b;
 }
@@ -440,16 +444,3 @@ h1 {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
-
-/* h1, h3 {
-  text-shadow: white 0px 0px 10px;
-}
-
-p, ul, label {
-  text-shadow: black 0px 0px 10px;
-}
-
-a {
-  font-weight: 700;
-  text-shadow: white 0px 0px 10px;
-} */
