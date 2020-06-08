@@ -14,7 +14,7 @@
    </div>
 </nav>
 
-<h1 class="heading" style="color: white;">Saved Games</h1>
+<h1 class="heading" style="color:white;text-align:center;">Saved Games</h1>
 
 <div class="container-fluid">
    <div class="row">
@@ -34,12 +34,17 @@
             <button type="button" class="fullDetails btn btn-secondary" value="{{dataValues.gameId}}">Full Game
                Details</button>
             <button type="button" class="deleteGame btn btn-secondary" id="delete" value="{{dataValues.gameId}}"><i
-                  class="fa fa-trash" ></i></button>
+                  class="fa fa-trash"></i></button>
          </div>
       </div>
       {{/each}}
    </div>
 </div>
+   <footer class="footer">
+      <div class="container">
+         <span class="text-muted">Data and Images sourced from <a href="https://rawg.io/">rawg.io</a></span>
+      </div>
+   </footer>
 
 <script type="text/javascript" src="js/gameData.js"></script>
 <script type="text/javascript" src="js/savedGames.js"></script>
