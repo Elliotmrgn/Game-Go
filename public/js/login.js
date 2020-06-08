@@ -1,13 +1,22 @@
 $(document).ready(function() {
-
-  $("#failedLogin").hide();
-
-
   // Getting references to our form and inputs
   const loginForm = $("form.login");
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");
+  
+  $("#failedLogin").hide();
+  
+  $.get("/api/user_data").then(function(data) {
+    if (data){
+      console.log("*****",data)
+    }
+    else{
+      console.log("~~~~~", data)
+    }
+  });
 
+
+  
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", (event) => {
     event.preventDefault();

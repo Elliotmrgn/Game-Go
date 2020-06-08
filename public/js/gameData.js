@@ -88,6 +88,7 @@ const init = () => {
   $("#gameData").hide();
   $(".loader").remove();
   $("#save").hide();
+  $("#searchAgain").hide();
   $(".carousel-indicators").empty();
   $(".carousel-inner").empty();
   $(".title").empty();
@@ -134,7 +135,7 @@ const generateHTML = (Game) => {
   Game.stores.forEach((store) => {
     //allPlatforms.push(` ${platform.platform.name}`)
     $(".stores").append(
-      `<li><a target="_blank" href="${store.url}">${store.name}</a></li>`
+      `<li><a class="store" target="_blank" href="${store.url}">${store.name}</a></li>`
     );
   });
   Game.developers.forEach((dev) => {
