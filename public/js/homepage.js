@@ -43,6 +43,7 @@ $(document).ready(function() {
       generateHTML(Game);
     } catch (err) {
       console.log(err);
+      $(".loader").remove();
       $("#failedSearch").show();
     }
   });
