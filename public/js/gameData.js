@@ -31,6 +31,7 @@ const generateRandomGameID = async (queryUrl) => {
   });
   return randomGameID;
 };
+
 const getGameData = async (id) => {
   let Game = {};
   await $.ajax({
@@ -102,7 +103,12 @@ const init = () => {
   $("#saveSuccess").hide();
 };
 
-const generateHTML = (Game) => {
+const loggedIn = async ()=>{
+  const userData = await $.get("/api/user_data");
+  return userData
+}
+
+const generateHTML = async (Game) => {
   Game.screenshots.forEach((screenshot, i) => {
     $(".carousel-indicators").append(
       `<li data-target="#screenshot-carousel" data-slide-to="${i}"></li>`
@@ -167,7 +173,10 @@ const generateHTML = (Game) => {
         </div>`);
   }
   $("#search-params").removeClass("show");
-  $("#save").show();
+  const canSave = await loggedIn();
+  if (canSave.id){
+    $("#save").show();
+  }
   $(".loader").hide();
   $("#gameData").show();
 };

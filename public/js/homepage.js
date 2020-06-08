@@ -16,6 +16,9 @@ $(document).ready(function() {
     let searchQuery = `platforms=${platform}&genres=${genre}&tags=${tags}`;
     return `https://api.rawg.io/api/games?${searchQuery}`;
   };
+
+
+
   window.onload = async () => {
     init();
     let lastID = localStorage.getItem("gameID");
@@ -46,6 +49,7 @@ $(document).ready(function() {
 
   $("#save").on("click", async (event) => {
     event.preventDefault();
+    $("#save").hide();
     const userData = await $.get("/api/user_data");
 
     saveGame(
