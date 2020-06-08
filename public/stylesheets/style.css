@@ -16,6 +16,8 @@ html, body {
   /* you could also use milliseconds (ms) or something like 2.5s */
   -webkit-animation: colorchange 175s linear 0s infinite alternate;
   /* Chrome and Safari */
+
+  list-style: none;
 }
 
 @keyframes colorchange {
@@ -55,23 +57,8 @@ html, body {
   max-width: 1280px;
 }
 
-.navbar {
-  background-color: transparent;
-  /* background: transparent;
-  border-color: transparent; */
-}
 
-.navbar li {
-  color: #000;
-}
 
-h2 {
-  color: white;
-}
-
-.formcontrol {
-  color: rgb(29, 28, 28);
-}
 
 .navbar-brand {
   padding-bottom: 15px;
@@ -93,13 +80,7 @@ img#logo {
   transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%;
-  }
-}
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -138,6 +119,7 @@ img#logo {
   margin-bottom: 20px;
   color: rgb(255, 255, 255);
   /* display: none; */
+  
 }
 
 img {
@@ -336,7 +318,7 @@ img {
   font-size: 20px;
 }
 
-#search {
+#search, .logout {
   background-color: #34373b;
   border: #34373b;
 }
@@ -378,6 +360,7 @@ li {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-size: 16px;
+  list-style: none;
 }
 
 #card {
