@@ -8,7 +8,7 @@ module.exports = (app) => {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/homepage");
+      return res.redirect("/homepage");
     }
     res.sendFile(path.join(__dirname, "../public/landingPage.html"));
   });
@@ -16,7 +16,7 @@ module.exports = (app) => {
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      return res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
