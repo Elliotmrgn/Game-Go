@@ -1,5 +1,25 @@
-html, .landingBody {
-    background: url(/public/landing-background.jpg);
-    z-index: 1;
-    
-}
+html {
+    background: url(../landing-background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+     
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ 
+ }
+ body{
+    background:none;
+ }
+
+.container{
+    padding:0;
+ }
+
+ .jumbotron{
+     margin:0;
+ }
+ 
